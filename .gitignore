@@ -22,3 +22,7 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# typed-router.d.ts
+# auto-imports.d.ts
+# components.d.ts
