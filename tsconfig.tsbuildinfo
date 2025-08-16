@@ -1,0 +1,1 @@
+{"root":["./auto-imports.d.ts","./components.d.ts","./eslint.config.ts","./typed-router.d.ts","./uno.config.ts","./vite.config.ts","./pages/posts/app.vue","./src/app.vue","./src/main.ts","./src/vite-env.d.ts"],"version":"5.8.3"}
