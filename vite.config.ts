@@ -1,5 +1,6 @@
 import path from 'node:path'
 import Vue from '@vitejs/plugin-vue'
+import VueJsx from '@vitejs/plugin-vue-jsx'
 import UnoCSS from 'unocss/vite'
 import AutoImport from 'unplugin-auto-import/vite'
 import { FileSystemIconLoader } from 'unplugin-icons/loaders'
@@ -21,6 +22,7 @@ export default defineConfig({
     Vue({
       include: [/\.vue$/, /\.md$/],
     }),
+    VueJsx(),
     UnoCSS(),
     VueRouter({
       extensions: ['.vue', '.md'],
@@ -53,7 +55,7 @@ export default defineConfig({
       compiler: 'vue3',
       customCollections: {
         custom: FileSystemIconLoader(
-          './src/assets/icons',
+          './src/assets/icons/text',
           (svg) => {
             // svg 是文件内容
             // 你可以在这里处理 svg 内容
