@@ -1,13 +1,12 @@
 <script setup lang="ts">
-import s场景1 from './prologue/stage1/index.vue'
+import Stage1 from './prologue/stage1/index.vue'
 
-const 路由 = useRoute()
-const 老船长 = '老船长'
+const route = useRoute()
 
-console.log(路由)
+console.log(route)
 </script>
 
 <template>
-  {{ 老船长 }}
-  <s场景1 />
+  <Stage1 />
+  <RouterView />
 </template>

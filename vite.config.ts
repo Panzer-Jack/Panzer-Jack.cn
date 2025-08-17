@@ -40,13 +40,10 @@ export default defineConfig({
     }),
     // https://github.com/unplugin/unplugin-vue-components
     Components({
-      extensions: ['vue', 'md'],
       dts: true,
-      include: [/\.vue$/, /\.vue\?vue/, /\.md$/],
+      extensions: ['vue', 'md'],
       resolvers: [
-        IconsResolver({
-          componentPrefix: '',
-        }),
+        IconsResolver({ customCollections: ['text', 'object'] }),
       ],
     }),
     // https://github.com/unplugin/unplugin-icons/blob/main/examples/vite-vue3/vite.config.ts
@@ -54,13 +51,13 @@ export default defineConfig({
       autoInstall: true,
       compiler: 'vue3',
       customCollections: {
-        custom: FileSystemIconLoader(
+        text: FileSystemIconLoader(
           './src/assets/icons/text',
-          (svg) => {
-            // svg 是文件内容
-            // 你可以在这里处理 svg 内容
-            return svg.replace(/<svg /, '<svg fill="currentColor" ')
-          },
+          svgLoader,
+        ),
+        object: FileSystemIconLoader(
+          './src/assets/icons/object',
+          svgLoader,
         ),
       },
     }),
@@ -71,3 +68,32 @@ export default defineConfig({
     },
   },
 })
+
+function svgLoader(svg: string) {
+  // 1. 移除 <style>...</style> 块（如果想保留可去掉这一行）
+  svg = svg.replace(/<style[^>]*>[\s\S]*?<\/style>/gi, '')
+
+  // 2. 处理包含 style="...": 把其中的 fill / stroke 属性值替换为 currentColor
+  svg = svg.replace(/style="([^"]*)"/gi, (m, content) => {
+    const replaced = content
+      // fill: xxx -> fill:currentColor
+      .replace(/fill\s*:[^;"}]+/gi, 'fill:currentColor')
+      // stroke: xxx -> stroke:currentColor
+      .replace(/stroke\s*:[^;"}]+/gi, 'stroke:currentColor')
+    return `style="${replaced}"`
+  })
+
+  // 3. 单独的 fill / stroke 属性（避免已经是 currentColor 再替换）
+  svg = svg.replace(/\sfill="(?!currentColor)[^"]*"/gi, ' fill="currentColor"')
+    .replace(/\sstroke="(?!currentColor)[^"]*"/gi, ' stroke="currentColor"')
+
+  // 4. 给 <svg> 补充 fill="currentColor"（若不存在）
+  svg = svg.replace(/<svg\b([^>]*)>/i, (m, attrs) => {
+    if (!/fill=/.test(attrs)) {
+      return `<svg${attrs} fill="currentColor">`
+    }
+    return m
+  })
+
+  return svg
+}
