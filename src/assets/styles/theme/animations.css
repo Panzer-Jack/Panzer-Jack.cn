@@ -1,0 +1,186 @@
+/**
+ * 动画样式定义
+ * Animation Styles
+ */
+
+/* ============================================
+   淡入淡出动画
+   ============================================ */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ============================================
+   文字光标闪烁
+   ============================================ */
+@keyframes cursorBlink {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+.cursor-blink {
+  animation: cursorBlink 0.5s infinite;
+}
+
+/* ============================================
+   边框发光脉冲
+   ============================================ */
+@keyframes glowPulse {
+  0%, 100% {
+    box-shadow:
+      0 0 10px rgba(123, 44, 191, 0.3),
+      inset 0 0 10px rgba(123, 44, 191, 0.1);
+  }
+  50% {
+    box-shadow:
+      0 0 20px rgba(123, 44, 191, 0.5),
+      inset 0 0 20px rgba(123, 44, 191, 0.2);
+  }
+}
+
+.glow-pulse {
+  animation: glowPulse 2s ease-in-out infinite;
+}
+
+/* ============================================
+   继续提示箭头弹跳
+   ============================================ */
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(4px);
+  }
+}
+
+.bounce {
+  animation: bounce 0.8s ease-in-out infinite;
+}
+
+/* ============================================
+   文字浮现效果
+   ============================================ */
+@keyframes textReveal {
+  from {
+    opacity: 0;
+    filter: blur(4px);
+  }
+  to {
+    opacity: 1;
+    filter: blur(0);
+  }
+}
+
+.text-reveal {
+  animation: textReveal 0.5s ease-out forwards;
+}
+
+/* ============================================
+   呼吸效果（适用于精灵图）
+   ============================================ */
+@keyframes breathe {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.02);
+  }
+}
+
+.breathe {
+  animation: breathe 3s ease-in-out infinite;
+}
+
+/* ============================================
+   缓慢浮动效果
+   ============================================ */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.float {
+  animation: float 4s ease-in-out infinite;
+}
+
+/* ============================================
+   血红色脉冲（用于警告/强调）
+   ============================================ */
+@keyframes bloodPulse {
+  0%, 100% {
+    color: #b22222;
+    text-shadow: 0 0 5px rgba(178, 34, 34, 0.5);
+  }
+  50% {
+    color: #ff4444;
+    text-shadow: 0 0 15px rgba(255, 68, 68, 0.8);
+  }
+}
+
+.blood-pulse {
+  animation: bloodPulse 2s ease-in-out infinite;
+}
+
+/* ============================================
+   紫色闪烁（用于交互提示）
+   ============================================ */
+@keyframes violetShimmer {
+  0%, 100% {
+    opacity: 0.7;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.violet-shimmer {
+  animation: violetShimmer 1.5s ease-in-out infinite;
+}
+
+/* 注意：动画延迟和持续时间请使用 UnoCSS 的内置 utilities
+   例如：animation-delay-100 / animation-duration-500 */

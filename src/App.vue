@@ -1,12 +1,16 @@
 <script setup lang="ts">
-import Stage1 from './prologue/stage1/index.vue'
+import PrologueContainer from './prologue/PrologueContainer.vue'
+import { usePrologueStore } from '@/stores/prologue'
 
-const route = useRoute()
-
-console.log(route)
+const store = usePrologueStore()
 </script>
 
 <template>
-  <Stage1 />
-  <RouterView />
+  <!-- 开场动画 -->
+  <PrologueContainer v-if="store.shouldShowPrologue" />
+
+  <!-- 主内容 -->
+  <div class="bg-gothic-bg min-h-screen text-text-primary">
+    <RouterView />
+  </div>
 </template>

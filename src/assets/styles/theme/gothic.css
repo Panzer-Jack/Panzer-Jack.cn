@@ -1,0 +1,177 @@
+/**
+ * 哥特暗黑风主题样式
+ * Gothic Dark Theme Styles
+ */
+
+/* ============================================
+   CSS 变量定义
+   ============================================ */
+:root {
+  /* 背景色 */
+  --gothic-bg: #0d0a0e;
+  --gothic-surface: #1a1520;
+  --gothic-elevated: #251d2a;
+  --gothic-border: #3d2d4a;
+
+  /* 强调色 */
+  --blood: #8b0000;
+  --blood-light: #b22222;
+  --blood-glow: #ff4444;
+  --violet: #4a0080;
+  --violet-light: #7b2cbf;
+  --violet-glow: #9d4edd;
+
+  /* 文字色 */
+  --text-primary: #e8e0f0;
+  --text-secondary: #a89bb8;
+  --text-muted: #6b5a7a;
+}
+
+/* ============================================
+   链接样式
+   ============================================ */
+a {
+  color: var(--violet-light);
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+a:hover {
+  color: var(--violet-glow);
+  text-shadow: 0 0 8px var(--violet-glow);
+}
+
+/* ============================================
+   选中文本样式
+   ============================================ */
+::selection {
+  background-color: var(--violet);
+  color: var(--text-primary);
+}
+
+/* ============================================
+   滚动条样式
+   ============================================ */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--gothic-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--gothic-border);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--violet);
+}
+
+/* ============================================
+   卡片/面板样式
+   ============================================ */
+.gothic-card {
+  background: var(--gothic-surface);
+  border: 1px solid var(--gothic-border);
+  border-radius: 4px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+}
+
+.gothic-card-elevated {
+  background: var(--gothic-elevated);
+  border: 1px solid var(--gothic-border);
+  border-radius: 4px;
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.5),
+    0 0 20px rgba(74, 0, 128, 0.1);
+}
+
+/* ============================================
+   发光边框效果
+   ============================================ */
+.glow-border {
+  border: 1px solid var(--violet-light);
+  box-shadow:
+    0 0 10px rgba(123, 44, 191, 0.3),
+    inset 0 0 10px rgba(123, 44, 191, 0.1);
+}
+
+.glow-border-blood {
+  border: 1px solid var(--blood-light);
+  box-shadow:
+    0 0 10px rgba(178, 34, 34, 0.3),
+    inset 0 0 10px rgba(178, 34, 34, 0.1);
+}
+
+/* ============================================
+   文字发光效果
+   ============================================ */
+.text-glow {
+  text-shadow:
+    0 0 5px currentColor,
+    0 0 10px currentColor;
+}
+
+.text-glow-violet {
+  color: var(--violet-glow);
+  text-shadow:
+    0 0 5px var(--violet-glow),
+    0 0 15px var(--violet-glow);
+}
+
+.text-glow-blood {
+  color: var(--blood-glow);
+  text-shadow:
+    0 0 5px var(--blood-glow),
+    0 0 15px var(--blood-glow);
+}
+
+/* ============================================
+   装饰性分隔线
+   ============================================ */
+.gothic-divider {
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--gothic-border) 20%,
+    var(--violet) 50%,
+    var(--gothic-border) 80%,
+    transparent
+  );
+}
+
+/* ============================================
+   按钮样式
+   ============================================ */
+.gothic-btn {
+  padding: 10px 24px;
+  font-size: 14px;
+  color: var(--text-primary);
+  cursor: pointer;
+  background: var(--gothic-surface);
+  border: 1px solid var(--gothic-border);
+  border-radius: 4px;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.gothic-btn:hover {
+  background: var(--gothic-elevated);
+  border-color: var(--violet-light);
+  box-shadow: 0 0 15px rgba(123, 44, 191, 0.3);
+}
+
+.gothic-btn-primary {
+  background: linear-gradient(135deg, var(--violet), var(--violet-light));
+  border: none;
+}
+
+.gothic-btn-primary:hover {
+  box-shadow:
+    0 0 20px rgba(123, 44, 191, 0.5),
+    0 0 40px rgba(123, 44, 191, 0.3);
+}

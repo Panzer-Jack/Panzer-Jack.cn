@@ -1,8 +1,32 @@
+/* 引入主题样式 */
+@import './theme/gothic.css';
+@import './theme/animations.css';
+
+/* 全局重置 - UnoCSS 无法处理的特殊样式 */
+* {
+  /* 禁用点击高亮 */
+  -webkit-tap-highlight-color: transparent;
+
+  /* 隐藏滚动条 - 各浏览器兼容 */
+  -ms-overflow-style: none; /* IE / Edge */
+  scrollbar-width: none; /* Firefox */
+
+  &::-webkit-scrollbar {
+    display: none; /* Chrome / Safari / Edge */
+  }
+}
+
+
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
   -webkit-tap-highlight-color: transparent;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 
   /* IE 和早期 Edge */
   -ms-overflow-style: none;
@@ -14,4 +38,24 @@
   &::-webkit-scrollbar {
     display: none;
   }
+}
+
+img,
+input,
+textarea,
+select {
+  -moz-user-select: text;
+  -webkit-user-select: text;
+  -khtml-user-select: text;
+  -ms-user-select: text;
+  user-select: text;
+}
+
+img {
+  pointer-events: none;      /* 彻底禁用鼠标事件，含右键 */
+}
+
+
+:root {
+  font-family: 'PingFang SC', Inter, Avenir, Helvetica, Arial, sans-serif;
 }
