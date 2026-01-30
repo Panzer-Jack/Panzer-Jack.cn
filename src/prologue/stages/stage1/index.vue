@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import DialogueBox from '@/components/DialogueBox.vue'
-import YuliaSprite from '@/components/YuliaSprite.vue'
-import { useDialogue } from '@/composables/useDialogue'
+import { useDialogueSystem } from '@/composables/useDialogueSystem'
 import type { StageProps } from '@/prologue/types/stage'
 import { dialogueScript } from './scripts'
 
@@ -13,15 +12,17 @@ const emit = defineEmits<{
   complete: []
 }>()
 
-// 使用对话能力
+// 使用对话系统（合并了对话流程和打字效果）
 const {
-  currentText,
+  displayedText,
+  isTyping,
   currentExpression,
   currentSpeaker,
-  isDialogueComplete,
   next,
-  setTyping,
-} = useDialogue(dialogueScript)
+} = useDialogueSystem(dialogueScript, {
+  speed: 50,
+  onDialogueComplete: () => emit('complete'),
+})
 
 // 是否显示内容（淡入效果）
 const isVisible = ref(false)
@@ -32,33 +33,24 @@ onMounted(() => {
   }, 100)
 })
 
-// 对话结束时通知完成
-watch(isDialogueComplete, (complete) => {
-  if (complete) {
-    emit('complete')
-  }
-})
-
-// 打字完成回调
-function onTypeComplete() {
-  setTyping(false)
-}
-
-// 打字开始
-watch(currentText, () => {
-  setTyping(true)
-})
-
-// 点击继续
+// 点击继续（智能处理：打字中则快进，完成则下一句）
 function handleClick() {
   next()
 }
+
+onMounted(() => {
+  window.addEventListener('keydown', handleClick)
+})
+
+onUnmounted(() => {
+  window.removeEventListener('keydown', handleClick)
+})
 </script>
 
 <template>
   <div
     class="dialogue-stage fixed inset-0 flex flex-col items-center justify-end pb-60px cursor-pointer"
-    @click="handleClick"
+    @click.stop="handleClick"
   >
     <!-- 背景 -->
     <div class="stage-bg absolute inset-0 z--1" />
@@ -66,22 +58,21 @@ function handleClick() {
     <!-- 主内容区 -->
     <Transition name="content-fade">
       <div v-if="isVisible" class="flex flex-col items-center w-full max-w-900px px-20px">
-        <!-- 尤莉娅精灵图 -->
+        <!-- 尤莉娅精灵图 (预留)
         <div class="mb-40px">
           <YuliaSprite
             :expression="currentExpression"
             :scale="1.5"
             :enable-blink="true"
           />
-        </div>
+        </div> -->
 
-        <!-- 对话框 -->
+        <!-- 对话框：使用 v-model 绑定 displayedText -->
         <div class="w-full">
           <DialogueBox
+            v-model="displayedText"
             :speaker="currentSpeaker"
-            :text="currentText"
-            :speed="50"
-            @complete="onTypeComplete"
+            :typing="isTyping"
           />
         </div>
       </div>

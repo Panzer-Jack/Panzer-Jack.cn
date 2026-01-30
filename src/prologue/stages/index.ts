@@ -7,8 +7,8 @@ import { stage2Config } from './stage2/config'
  * 未来添加新 stage 时，在此导入并加入数组
  */
 const allStages: StageConfig[] = [
-  stage2Config, // Galgame 风格开场动画 (order: 0)
-  stage1Config, // 尤莉娅对话阶段 (order: 1)
+  stage1Config, // 尤莉娅对话阶段 
+  stage2Config, // Galgame 风格开场动画 
 ]
 
 /**

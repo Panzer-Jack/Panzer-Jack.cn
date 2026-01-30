@@ -5,8 +5,8 @@ import type { StageConfig } from '@/prologue/types/stage'
  */
 export const stage2Config: StageConfig = {
   id: 'stage2',
-  order: 0,
-  nextStage: 'stage1',
+  order: 1,
+  nextStage: undefined,
   component: () => import('./index.vue'),
   transition: {
     enterClass: 'fade',

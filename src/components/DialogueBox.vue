@@ -1,72 +1,28 @@
 <script setup lang="ts">
-import { useTypewriter } from '@/composables/useTypewriter'
-
 interface Props {
   /** 说话者名字 */
   speaker?: string
-  /** 对话文本 */
-  text: string
-  /** 打字速度 */
-  speed?: number
+  /** v-model 绑定的显示文本 */
+  modelValue: string
+  /** 是否正在打字 */
+  typing?: boolean
 }
 
 const props = withDefaults(defineProps<Props>(), {
   speaker: '尤莉娅',
-  speed: 50,
+  typing: false,
 })
 
-const emit = defineEmits<{
-  /** 打字完成 */
-  complete: []
-  /** 点击继续 */
-  continue: []
+defineEmits<{
+  'update:modelValue': [value: string]
 }>()
 
-const { displayedText, isTyping, isComplete, typeText, skipToEnd } = useTypewriter({
-  speed: props.speed,
-  onComplete: () => emit('complete'),
-})
-
-// 监听文本变化，开始打字
-watch(
-  () => props.text,
-  (newText) => {
-    if (newText) {
-      typeText(newText)
-    }
-  },
-  { immediate: true },
-)
-
-// 处理点击
-function handleClick() {
-  if (isTyping.value) {
-    skipToEnd()
-  }
-  else if (isComplete.value) {
-    emit('continue')
-  }
-}
-
-// 键盘事件
-function handleKeydown(e: KeyboardEvent) {
-  if (e.code === 'Space' || e.code === 'Enter') {
-    e.preventDefault()
-    handleClick()
-  }
-}
-
-onMounted(() => {
-  window.addEventListener('keydown', handleKeydown)
-})
-
-onUnmounted(() => {
-  window.removeEventListener('keydown', handleKeydown)
-})
+// 打字完成判断
+const isComplete = computed(() => !props.typing && props.modelValue.length > 0)
 </script>
 
 <template>
-  <div class="dialogue-box relative w-full max-w-800px px-24px py-20px rounded-4px cursor-pointer select-none" @click.stop="handleClick">
+  <div class="dialogue-box relative w-full max-w-800px px-24px py-20px rounded-4px cursor-pointer select-none">
     <!-- 角色名 -->
     <div v-if="speaker" class="speaker-name absolute top--14px left-20px px-16px py-4px rounded-2px">
       <span class="text-14px font-bold text-text-primary tracking-2px">{{ speaker }}</span>
@@ -75,7 +31,7 @@ onUnmounted(() => {
     <!-- 对话内容 -->
     <div class="min-h-60px pt-8px">
       <p class="text-18px leading-1.8 text-text-primary tracking-1px">
-        {{ displayedText }}<span v-if="isTyping" class="cursor text-violet-glow">|</span>
+        {{ modelValue }}<span v-if="typing" class="cursor text-violet-glow">|</span>
       </p>
     </div>
 

@@ -20,5 +20,10 @@
     "forceConsistentCasingInFileNames": true,
     "skipLibCheck": true
   },
-  "exclude": ["dist", "node_modules"]
+  "exclude": ["dist", "node_modules"],
+  "include": [
+    "./typed-router.d.ts",
+    "./auto-imports.d.ts",
+    "./components.d.ts",
+  ]
 }

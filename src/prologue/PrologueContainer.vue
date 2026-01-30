@@ -37,7 +37,6 @@ function handleStageComplete() {
     <div
       v-if="!store.isComplete"
       class="prologue-container fixed inset-0 z-9999"
-      :class="{ 'is-transitioning': store.isTransitioning }"
     >
       <!-- 跳过按钮 -->
       <div class="absolute top-20px right-20px z-10">
@@ -56,18 +55,15 @@ function handleStageComplete() {
       </Transition>
     </div>
   </Transition>
+
+  <!-- 保底背景层，防止 stage 过渡时透出底层页面 -->
+  <div  
+    v-if="!store.isComplete" 
+    class="bg-#0d0a0e absolute inset-0 z-1" 
+  />
 </template>
 
 <style scoped>
-/* 过渡动画 */
-.prologue-container {
-  transition: opacity 0.5s ease;
-}
-
-.prologue-container.is-transitioning {
-  opacity: 0;
-}
-
 /* Vue Transition 动画 */
 .fade-enter-active,
 .fade-leave-active {

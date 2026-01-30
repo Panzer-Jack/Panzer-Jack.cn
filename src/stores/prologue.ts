@@ -2,7 +2,7 @@ import { defineStore } from 'pinia'
 
 export const usePrologueStore = defineStore('prologue', () => {
   // 当前 stage ID (从 stage2 开场动画开始)
-  const currentStageId = ref<string>('stage2')
+  const currentStageId = ref<string>('stage1')
 
   // 是否正在过渡
   const isTransitioning = ref(false)
