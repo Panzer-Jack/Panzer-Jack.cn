@@ -38,7 +38,6 @@ export const menuConfig: MenuConfig = {
  * 作者信息配置
  */
 export const authorConfig = {
-  name: 'PZ_Jack',
   title: 'Readme',
   description: 'A Pragmatistic Dreamer. ',
 }
