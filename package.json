@@ -13,6 +13,7 @@
     "@unhead/vue": "^2.0.14",
     "@vueuse/core": "^13.6.0",
     "pinia": "^3.0.3",
+    "reading-time": "^1.5.0",
     "vue": "^3.5.18",
     "vue-router": "^4.5.1",
     "vue-router-better-scroller": "^0.0.0"
@@ -26,6 +27,7 @@
     "eslint": "^9.33.0",
     "eslint-plugin-format": "^1.0.1",
     "markdown-it": "^14.1.0",
+    "postcss-plugin-px2rem": "^0.8.1",
     "postcss-px-to-viewport": "^1.1.1",
     "typescript": "~5.8.3",
     "unocss": "^66.4.2",

@@ -10,33 +10,56 @@ function handleSkip() {
 
 <template>
   <button
-    class="skip-button flex items-center gap-6px px-16px py-8px font-inherit text-14px text-text-secondary cursor-pointer bg-[rgba(13,10,14,0.8)] border border-solid border-gothic-border rounded-4px outline-none"
+    class="skip-button relative flex items-center gap-6px px-16px py-8px font-inherit text-14px cursor-pointer outline-none"
     @click.stop="handleSkip"
   >
+    <span class="corner corner-tl" />
+    <span class="corner corner-br" />
     <span class="font-bold tracking-2px">SKIP</span>
     <span class="skip-icon text-12px">&gt;&gt;</span>
   </button>
 </template>
 
 <style scoped>
-/* 过渡动画 - 必须保留 */
+/* ========== TNO 风格按钮 ========== */
 .skip-button {
+  background: rgba(10, 18, 26, 0.9);
+  border: 1px solid #00d4aa;
+  color: #8ba8a8;
+  clip-path: polygon(
+    0 4px, 4px 0, calc(100% - 4px) 0, 100% 4px,
+    100% calc(100% - 4px), calc(100% - 4px) 100%, 4px 100%, 0 calc(100% - 4px)
+  );
   transition: all 0.2s ease;
 }
 
 .skip-button:hover {
-  color: #e8e0f0;
-  background: rgba(74, 0, 128, 0.4);
-  border-color: #7b2cbf;
-  box-shadow: 0 0 10px rgba(123, 44, 191, 0.3);
+  color: #00ffcc;
+  background: rgba(0, 212, 170, 0.15);
+  border-color: #00ffcc;
+  box-shadow: 0 0 15px rgba(0, 212, 170, 0.4);
+  text-shadow: 0 0 8px rgba(0, 255, 204, 0.5);
 }
 
 .skip-button:active {
   transform: scale(0.98);
 }
 
-/* 滑动动画 - 必须保留 */
+/* ========== 角落装饰 ========== */
+.corner {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  border: 1px solid #00d4aa;
+  pointer-events: none;
+}
+
+.corner-tl { top: 3px; left: 3px; border-right: none; border-bottom: none; }
+.corner-br { bottom: 3px; right: 3px; border-left: none; border-top: none; }
+
+/* ========== 滑动动画图标 ========== */
 .skip-icon {
+  color: #00d4aa;
   animation: slide 1s infinite;
 }
 

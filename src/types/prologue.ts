@@ -7,26 +7,13 @@ export interface SpriteFrame {
 }
 
 /**
- * 尤莉娅表情类型
- */
-export type ExpressionName =
-  | 'neutral'
-  | 'smile'
-  | 'happy'
-  | 'surprised'
-  | 'thinking'
-  | 'wave'
-  | 'blink'
-  | 'shy'
-
-/**
  * 单条对话
  */
 export interface DialogueLine {
   /** 对话文本 */
   text: string
   /** 对应的表情 */
-  expression: ExpressionName
+  expression: string
   /** 说话者名字，默认为尤莉娅 */
   speaker?: string
 }

@@ -1,4 +1,4 @@
-import type { DialogueLine, ExpressionName } from '@/types/prologue'
+import type { DialogueLine } from '@/types/prologue'
 
 export interface DialogueSystemOptions {
   /** 打字速度 (ms/字符)，默认 50 */
@@ -30,7 +30,7 @@ export function useDialogueSystem(
   // === 计算属性 ===
   const currentLine = computed(() => lines.value[currentIndex.value])
   const currentText = computed(() => currentLine.value?.text ?? '')
-  const currentExpression = computed<ExpressionName>(
+  const currentExpression = computed(
     () => currentLine.value?.expression ?? 'neutral',
   )
   const currentSpeaker = computed(() => currentLine.value?.speaker ?? '尤莉娅')

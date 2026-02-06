@@ -57,7 +57,6 @@ export default defineConfig({
         ),
         object: FileSystemIconLoader(
           './src/assets/icons/object',
-          svgLoader,
         ),
       },
     }),
@@ -66,6 +65,11 @@ export default defineConfig({
     alias: {
       '@': _resolve('./src'),
     },
+  },
+  server: {
+    allowedHosts: true,
+    host: '0.0.0.0',
+    port: 2233,
   },
 })
 

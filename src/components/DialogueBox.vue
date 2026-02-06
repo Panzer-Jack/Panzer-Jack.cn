@@ -22,50 +22,132 @@ const isComplete = computed(() => !props.typing && props.modelValue.length > 0)
 </script>
 
 <template>
-  <div class="dialogue-box relative w-full max-w-800px px-24px py-20px rounded-4px cursor-pointer select-none">
-    <!-- 角色名 -->
-    <div v-if="speaker" class="speaker-name absolute top--14px left-20px px-16px py-4px rounded-2px">
-      <span class="text-14px font-bold text-text-primary tracking-2px">{{ speaker }}</span>
+  <div class="relative w-full max-w-100% cursor-pointer select-none">
+    <!-- 角色名（在对话框外部） -->
+    <div v-if="speaker" class="speaker-name absolute top-6px left-24px h-30px flex justify-center items-center px-16px py-4px z-20">
+      <span class="text-14px font-bold tracking-2px">{{ speaker }}</span>
     </div>
 
-    <!-- 对话内容 -->
-    <div class="min-h-60px pt-8px">
-      <p class="text-18px leading-1.8 text-text-primary tracking-1px">
-        {{ modelValue }}<span v-if="typing" class="cursor text-violet-glow">|</span>
-      </p>
-    </div>
+    <!-- 主对话框 -->
+    <div class="dialogue-box relative w-full px-24px py-24px mt-12px">
+      <!-- TNO 角落装饰 -->
+      <span class="corner-decor corner-tl" />
+      <span class="corner-decor corner-tr" />
+      <span class="corner-decor corner-bl" />
+      <span class="corner-decor corner-br" />
 
-    <!-- 继续提示 -->
-    <div v-if="isComplete" class="absolute right-20px bottom-12px">
-      <span class="indicator-arrow text-14px text-violet-glow">▼</span>
+      <!-- 对话内容 -->
+      <div class="min-h-80px pt-20px relative z-10">
+        <p class="dialogue-text text-14px tracking-1px">
+          {{ modelValue }}<span v-if="typing" class="cursor">_</span>
+        </p>
+      </div>
+
+      <!-- 继续提示 -->
+      <div v-if="isComplete" class="absolute right-20px bottom-12px z-10">
+        <span class="indicator-arrow text-14px">▼</span>
+      </div>
     </div>
   </div>
 </template>
 
 <style scoped>
-/* 多层阴影和边框 - 无法用 UnoCSS 表示 */
+/* ========== TNO 风格主容器 ========== */
 .dialogue-box {
-  background: rgba(13, 10, 14, 0.95);
-  border: 2px solid #7b2cbf;
+  background: rgba(10, 18, 26, 0.95);
+  border: 2px solid #00d4aa;
+  clip-path: polygon(
+    0 8px, 8px 0, calc(100% - 8px) 0, 100% 8px,
+    100% calc(100% - 8px), calc(100% - 8px) 100%, 8px 100%, 0 calc(100% - 8px)
+  );
   box-shadow:
-    0 0 15px rgba(123, 44, 191, 0.4),
-    inset 0 0 30px rgba(0, 0, 0, 0.5);
+    0 0 20px rgba(0, 212, 170, 0.3),
+    inset 0 0 40px rgba(0, 0, 0, 0.5),
+    inset 0 0 0 1px rgba(0, 212, 170, 0.2);
+  position: relative;
+  overflow: hidden;
 }
 
-/* 渐变背景和阴影 - 无法用 UnoCSS 表示 */
+/* 扫描线纹理 */
+.dialogue-box::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0, 212, 170, 0.03) 2px,
+    rgba(0, 212, 170, 0.03) 4px
+  );
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* 扫描动画线 */
+.dialogue-box::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(0, 212, 170, 0.5), transparent);
+  animation: scan 3s linear infinite;
+  z-index: 2;
+}
+
+@keyframes scan {
+  0% { top: 0; opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { top: 100%; opacity: 0; }
+}
+
+/* ========== 角落装饰 ========== */
+.corner-decor {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  border: 2px solid #00d4aa;
+  z-index: 5;
+}
+
+.corner-tl { top: 4px; left: 4px; border-right: none; border-bottom: none; }
+.corner-tr { top: 4px; right: 4px; border-left: none; border-bottom: none; }
+.corner-bl { bottom: 4px; left: 4px; border-right: none; border-top: none; }
+.corner-br { bottom: 4px; right: 4px; border-left: none; border-top: none; }
+
+/* ========== 名字标签 TNO 风格 ========== */
 .speaker-name {
-  background: linear-gradient(135deg, #4a0080, #7b2cbf);
-  box-shadow: 0 2px 8px rgba(74, 0, 128, 0.5);
+  background: rgba(10, 18, 26, 0.98);
+  border: 1px solid #00d4aa;
+  box-shadow: 0 0 10px rgba(0, 212, 170, 0.3);
+  clip-path: polygon(0 4px, 4px 0, calc(100% - 4px) 0, 100% 4px, 100% calc(100% - 4px), calc(100% - 4px) 100%, 4px 100%, 0 calc(100% - 4px));
 }
 
-/* 闪烁动画 - 必须保留 */
+.speaker-name span {
+  color: #00ffcc;
+  text-shadow: 0 0 8px rgba(0, 255, 204, 0.5);
+}
+
+/* ========== 文字颜色 ========== */
+.dialogue-text {
+  color: #e8f0f0;
+}
+
+/* 终端风格光标 */
 .cursor {
-  animation: blink 0.5s infinite;
+  color: #00ffcc;
+  font-weight: bold;
+  text-shadow: 0 0 8px rgba(0, 255, 204, 0.6);
+  animation: blink 0.8s step-end infinite;
 }
 
-/* 弹跳动画 - 必须保留 */
+/* 继续指示器 */
 .indicator-arrow {
+  color: #00d4aa;
   animation: bounce 0.8s infinite;
+  text-shadow: 0 0 8px rgba(0, 212, 170, 0.6);
 }
 
 @keyframes blink {

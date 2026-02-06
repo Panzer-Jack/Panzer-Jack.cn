@@ -1,8 +1,6 @@
 ---
 title: Categorize Your Dependencies
 date: 2025-04-28T14:00:00Z
-lang: en
-duration: 8min
 ---
 
 When building a project, it's very likely that we will install third-party packages from npm to offload some tasks. On that topic, we know there are two major types of dependencies: `dependencies` (prod) and `devDependencies` (dev). In our `package.json`, it might look something like this:
