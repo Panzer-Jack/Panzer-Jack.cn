@@ -97,7 +97,7 @@ go-cqhtt下载: https://docs.go-cqhttp.org/
    > ![](https://img-blog.csdnimg.cn/img_convert/e75628139e828d2990465e0a2d8ef892.jpeg)
    > 然后去 [chromedriver国内镜像](https://registry.npmmirror.com/binary.html?path=chromedriver/) 下载适合你系统 和 谷歌版本的 谷歌驱动
 
-<mark><strong><big><font face="courier New" color=#1E90FF>好！正式进入使用介绍：<big></font><strong></mark>
+**好！正式进入使用介绍：**
 
 ## 使用教程：
 
