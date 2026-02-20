@@ -6,7 +6,7 @@ import { useMenuStore } from './stores/menu'
 
 const prologueStore = usePrologueStore()
 const menuStore = useMenuStore()
-prologueStore.isComplete = true
+// prologueStore.isComplete = true
 </script>
 
 <template>
