@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import type { MenuItem as MenuItemType } from '@/types/menu'
-import MenuItem from './MenuItem.vue'
-import GlitchTitle from './GlitchTitle.vue'
-import { menuConfig } from '@/data/menuItems'
 import containerBtnsBg from '@/assets/images/container-btns.png'
+import { menuConfig } from '@/data/menuItems'
+import GlitchTitle from './GlitchTitle.vue'
+import MenuItem from './MenuItem.vue'
 
 interface Props {
   items: MenuItemType[]
@@ -15,6 +15,7 @@ defineProps<Props>()
 const emit = defineEmits<{
   select: [item: MenuItemType]
 }>()
+
 </script>
 
 <template>
@@ -31,9 +32,9 @@ const emit = defineEmits<{
       <!-- 菜单列表 - 对应图片底部大矩形 -->
       <nav class="menu-nav w-150px relative flex-1 flex flex-col items-center m-[20px_35px_80px] overflow-y-auto overflow-x-hidden">
         <MenuItem
-          class="mb-10px"
           v-for="(item, index) in items"
           :key="item.id"
+          class="mb-10px"
           :item="item"
           :index="index"
           :is-active="item.id === activeId"
@@ -90,9 +91,19 @@ const emit = defineEmits<{
 }
 
 @keyframes navScan {
-  0% { top: 0; opacity: 0; }
-  10% { opacity: 1; }
-  90% { opacity: 1; }
-  100% { top: 100%; opacity: 0; }
+  0% {
+    top: 0;
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    top: 100%;
+    opacity: 0;
+  }
 }
 </style>

@@ -27,8 +27,14 @@ function handleSkip() {
   border: 1px solid #00d4aa;
   color: #8ba8a8;
   clip-path: polygon(
-    0 4px, 4px 0, calc(100% - 4px) 0, 100% 4px,
-    100% calc(100% - 4px), calc(100% - 4px) 100%, 4px 100%, 0 calc(100% - 4px)
+    0 4px,
+    4px 0,
+    calc(100% - 4px) 0,
+    100% 4px,
+    100% calc(100% - 4px),
+    calc(100% - 4px) 100%,
+    4px 100%,
+    0 calc(100% - 4px)
   );
   transition: all 0.2s ease;
 }
@@ -54,8 +60,18 @@ function handleSkip() {
   pointer-events: none;
 }
 
-.corner-tl { top: 3px; left: 3px; border-right: none; border-bottom: none; }
-.corner-br { bottom: 3px; right: 3px; border-left: none; border-top: none; }
+.corner-tl {
+  top: 3px;
+  left: 3px;
+  border-right: none;
+  border-bottom: none;
+}
+.corner-br {
+  bottom: 3px;
+  right: 3px;
+  border-left: none;
+  border-top: none;
+}
 
 /* ========== 滑动动画图标 ========== */
 .skip-icon {
@@ -64,7 +80,12 @@ function handleSkip() {
 }
 
 @keyframes slide {
-  0%, 100% { transform: translateX(0); }
-  50% { transform: translateX(3px); }
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(3px);
+  }
 }
 </style>

@@ -63,8 +63,7 @@ export function useDialogueSystem(
         displayedText.value += text[charIndex]
         charIndex++
         typeTimer = setTimeout(typeNextChar, speed)
-      }
-      else {
+      } else {
         isTyping.value = false
         // 如果是最后一句且打字完成，触发对话完成回调
         if (isLastLine.value) {
@@ -98,8 +97,7 @@ export function useDialogueSystem(
     if (isLineComplete.value && !isDialogueComplete.value) {
       if (currentIndex.value < lines.value.length - 1) {
         currentIndex.value++
-      }
-      else {
+      } else {
         // 最后一句已完成，标记对话结束
         currentIndex.value = lines.value.length
       }

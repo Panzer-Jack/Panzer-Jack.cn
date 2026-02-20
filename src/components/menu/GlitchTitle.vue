@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { useGlitchCanvas } from '@/composables/useGlitchCanvas'
 import type { GlitchConfig } from '@/types/glitch'
+import { useGlitchCanvas } from '@/composables/useGlitchCanvas'
 
 interface Props {
   /** 显示文字 */
@@ -35,8 +35,14 @@ watch([width, height], ([w, h]) => {
 </script>
 
 <template>
-  <div ref="containerRef" class="glitch-title-container">
-    <canvas ref="canvasRef" class="glitch-canvas" />
+  <div
+    ref="containerRef"
+    class="glitch-title-container"
+  >
+    <canvas
+      ref="canvasRef"
+      class="glitch-canvas"
+    />
   </div>
 </template>
 

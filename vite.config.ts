@@ -1,6 +1,13 @@
 import path from 'node:path'
 import Vue from '@vitejs/plugin-vue'
 import VueJsx from '@vitejs/plugin-vue-jsx'
+import fs from 'fs-extra'
+import matter from 'gray-matter'
+import MarkdownItAnchor from 'markdown-it-anchor'
+import MarkdownItPrism from 'markdown-it-prism'
+// @ts-expect-error missing types
+import MarkdownItTOC from 'markdown-it-table-of-contents'
+import readingTime from 'reading-time'
 import UnoCSS from 'unocss/vite'
 import AutoImport from 'unplugin-auto-import/vite'
 import { FileSystemIconLoader } from 'unplugin-icons/loaders'
@@ -27,9 +34,40 @@ export default defineConfig({
     VueRouter({
       extensions: ['.vue', '.md'],
       routesFolder: 'pages',
+      // logs: true,
+      extendRoute(route) {
+        const path = route.components.get('default')
+        if (!path)
+          return
+
+        if (path.endsWith('.md')) {
+          const rawContent = fs.readFileSync(path, 'utf-8')
+          const { data } = matter(rawContent)
+          route.addToMeta({
+            frontmatter: {
+              duration: Number(readingTime(rawContent).minutes.toFixed(0)) + 1,
+              ...data,
+            },
+          })
+        }
+      },
     }),
     Markdown({
       headEnabled: true,
+      markdownItOptions: {
+        html: true,
+        linkify: true,
+        typographer: true,
+      },
+      markdownItSetup(md) {
+        md.use(MarkdownItAnchor)
+        md.use(MarkdownItPrism)
+        md.use(MarkdownItTOC, {
+          includeLevel: [1, 2, 3, 4],
+          containerHeaderHtml: '<div class="table-of-contents-anchor"><div class="i-ri-menu-2-fill" /></div>',
+        })
+      },
+      wrapperClasses: 'markdown-body',
     }),
     AutoImport({
       imports: [
@@ -42,6 +80,7 @@ export default defineConfig({
     Components({
       dts: true,
       extensions: ['vue', 'md'],
+      include: [/\.vue$/, /\.vue\?vue/, /\.md$/],
       resolvers: [
         IconsResolver({ customCollections: ['text', 'object'] }),
       ],

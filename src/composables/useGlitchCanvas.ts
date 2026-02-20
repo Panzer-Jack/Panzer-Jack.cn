@@ -1,4 +1,4 @@
-import type { GlitchBar, GlitchConfig, GlitchAnimationState } from '@/types/glitch'
+import type { GlitchAnimationState, GlitchBar, GlitchConfig } from '@/types/glitch'
 
 // TNO 主题色
 const TNO_PRIMARY = '#00d4aa'
@@ -28,8 +28,10 @@ export function useGlitchCanvas(config: Ref<GlitchConfig>) {
       x: Math.random() < 0.5 ? -w : width,
       y: Math.random() * height,
       speed: (Math.random() * 15 + 8) * (Math.random() < 0.5 ? 1 : -1),
-      color: Math.random() < 0.1 ? GLITCH_RED
-        : Math.random() < 0.1 ? GLITCH_CYAN
+      color: Math.random() < 0.1
+        ? GLITCH_RED
+        : Math.random() < 0.1
+          ? GLITCH_CYAN
           : '#ffffff',
       opacity: Math.random() * 0.4 + 0.1,
     }
@@ -89,7 +91,8 @@ export function useGlitchCanvas(config: Ref<GlitchConfig>) {
     w: number,
     h: number,
   ) {
-    if (Math.random() > 0.25) return
+    if (Math.random() > 0.25)
+      return
 
     const numSlices = Math.floor(Math.random() * (intensity.value / 15)) + 1
     for (let i = 0; i < numSlices; i++) {
@@ -119,10 +122,12 @@ export function useGlitchCanvas(config: Ref<GlitchConfig>) {
   // ========== 动画循环 ==========
   function animate() {
     const canvas = canvasRef.value
-    if (!canvas) return
+    if (!canvas)
+      return
 
     const ctx = canvas.getContext('2d', { willReadFrequently: true })
-    if (!ctx) return
+    if (!ctx)
+      return
 
     const { width: w, height: h } = canvas
 
@@ -145,7 +150,8 @@ export function useGlitchCanvas(config: Ref<GlitchConfig>) {
   // ========== 生命周期 ==========
   function start() {
     const canvas = canvasRef.value
-    if (!canvas) return
+    if (!canvas)
+      return
     initBars(canvas.width, canvas.height)
     animate()
   }

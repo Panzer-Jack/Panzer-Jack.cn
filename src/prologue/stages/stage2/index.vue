@@ -21,7 +21,12 @@ onMounted(() => {
 
     <!-- 放射光线层 -->
     <div class="rays-layer absolute inset-0 flex items-center justify-center">
-      <div v-for="i in 6" :key="i" class="ray" :class="`ray-${i}`">
+      <div
+        v-for="i in 6"
+        :key="i"
+        class="ray"
+        :class="`ray-${i}`"
+      >
         <span />
       </div>
     </div>
@@ -57,7 +62,12 @@ onMounted(() => {
     <!-- 装饰层 -->
     <div class="decor-layer absolute inset-0 pointer-events-none">
       <!-- 星星装饰 -->
-      <div v-for="i in 5" :key="i" class="star" :class="`star-${i}`" />
+      <div
+        v-for="i in 5"
+        :key="i"
+        class="star"
+        :class="`star-${i}`"
+      />
     </div>
 
     <!-- 淡出遮罩 -->
@@ -73,8 +83,12 @@ onMounted(() => {
 }
 
 @keyframes bgShift {
-  0% { background: #000; }
-  100% { background: #0d0a0e; }
+  0% {
+    background: #000;
+  }
+  100% {
+    background: #0d0a0e;
+  }
 }
 
 .glow-orb {
@@ -98,9 +112,17 @@ onMounted(() => {
 }
 
 @keyframes orbExpand {
-  0% { transform: scale(0); opacity: 0; }
-  40% { opacity: 1; }
-  100% { transform: scale(1); opacity: 0.8; }
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  40% {
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
 }
 
 /* ========== 放射光线 ========== */
@@ -127,22 +149,50 @@ onMounted(() => {
   animation: raySlide 0.6s ease-out forwards;
 }
 
-.ray-1 { transform: rotate(0deg); }
-.ray-1 span { animation-delay: 2s; }
-.ray-2 { transform: rotate(60deg); }
-.ray-2 span { animation-delay: 2.1s; }
-.ray-3 { transform: rotate(120deg); }
-.ray-3 span { animation-delay: 2.2s; }
-.ray-4 { transform: rotate(180deg); }
-.ray-4 span { animation-delay: 2.3s; }
-.ray-5 { transform: rotate(240deg); }
-.ray-5 span { animation-delay: 2.4s; }
-.ray-6 { transform: rotate(300deg); }
-.ray-6 span { animation-delay: 2.5s; }
+.ray-1 {
+  transform: rotate(0deg);
+}
+.ray-1 span {
+  animation-delay: 2s;
+}
+.ray-2 {
+  transform: rotate(60deg);
+}
+.ray-2 span {
+  animation-delay: 2.1s;
+}
+.ray-3 {
+  transform: rotate(120deg);
+}
+.ray-3 span {
+  animation-delay: 2.2s;
+}
+.ray-4 {
+  transform: rotate(180deg);
+}
+.ray-4 span {
+  animation-delay: 2.3s;
+}
+.ray-5 {
+  transform: rotate(240deg);
+}
+.ray-5 span {
+  animation-delay: 2.4s;
+}
+.ray-6 {
+  transform: rotate(300deg);
+}
+.ray-6 span {
+  animation-delay: 2.5s;
+}
 
 @keyframes raySlide {
-  0% { transform: translateY(100%); }
-  100% { transform: translateY(0); }
+  0% {
+    transform: translateY(100%);
+  }
+  100% {
+    transform: translateY(0);
+  }
 }
 
 /* ========== 主标题 ========== */
@@ -158,11 +208,27 @@ onMounted(() => {
 }
 
 @keyframes titleBounce {
-  0% { opacity: 0; filter: blur(20px); transform: scale(0.8); }
-  50% { opacity: 1; filter: blur(0); transform: scale(1.08); }
-  70% { transform: scale(0.97); }
-  85% { transform: scale(1.02); }
-  100% { opacity: 1; filter: blur(0) drop-shadow(0 0 30px rgba(123, 44, 191, 0.6)); transform: scale(1); }
+  0% {
+    opacity: 0;
+    filter: blur(20px);
+    transform: scale(0.8);
+  }
+  50% {
+    opacity: 1;
+    filter: blur(0);
+    transform: scale(1.08);
+  }
+  70% {
+    transform: scale(0.97);
+  }
+  85% {
+    transform: scale(1.02);
+  }
+  100% {
+    opacity: 1;
+    filter: blur(0) drop-shadow(0 0 30px rgba(123, 44, 191, 0.6));
+    transform: scale(1);
+  }
 }
 
 /* 标题光晕脉冲 */
@@ -176,9 +242,20 @@ onMounted(() => {
 }
 
 @keyframes titleGlow {
-  0% { opacity: 0; box-shadow: 0 0 0 rgba(123, 44, 191, 0); }
-  50% { opacity: 1; box-shadow: 0 0 60px rgba(123, 44, 191, 0.5), 0 0 120px rgba(123, 44, 191, 0.2); }
-  100% { opacity: 0.6; box-shadow: 0 0 30px rgba(123, 44, 191, 0.3); }
+  0% {
+    opacity: 0;
+    box-shadow: 0 0 0 rgba(123, 44, 191, 0);
+  }
+  50% {
+    opacity: 1;
+    box-shadow:
+      0 0 60px rgba(123, 44, 191, 0.5),
+      0 0 120px rgba(123, 44, 191, 0.2);
+  }
+  100% {
+    opacity: 0.6;
+    box-shadow: 0 0 30px rgba(123, 44, 191, 0.3);
+  }
 }
 
 /* ========== 装饰线 ========== */
@@ -191,8 +268,14 @@ onMounted(() => {
 }
 
 @keyframes lineExpand {
-  0% { width: 0; opacity: 0; }
-  100% { width: clamp(120px, 30vw, 300px); opacity: 1; }
+  0% {
+    width: 0;
+    opacity: 0;
+  }
+  100% {
+    width: clamp(120px, 30vw, 300px);
+    opacity: 1;
+  }
 }
 
 /* ========== 副标题行 ========== */
@@ -208,9 +291,18 @@ onMounted(() => {
 }
 
 @keyframes subtitleReveal {
-  0% { opacity: 0; transform: translateY(12px); }
-  60% { opacity: 1; transform: translateY(-2px); }
-  100% { opacity: 1; transform: translateY(0); }
+  0% {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  60% {
+    opacity: 1;
+    transform: translateY(-2px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* ========== 尤莉娅图标 ========== */
@@ -227,10 +319,21 @@ onMounted(() => {
 }
 
 @keyframes yuliaAppear {
-  0% { opacity: 0; transform: scale(0.6); }
-  50% { opacity: 1; transform: scale(1.1); }
-  70% { transform: scale(0.95); }
-  100% { opacity: 1; transform: scale(1); }
+  0% {
+    opacity: 0;
+    transform: scale(0.6);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.1);
+  }
+  70% {
+    transform: scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
 
 /* ========== 星星装饰 ========== */
@@ -244,21 +347,64 @@ onMounted(() => {
   box-shadow: 0 0 8px rgba(157, 78, 221, 0.8);
 }
 
-.star-1 { top: 22%; right: 18%; animation: starPop 0.4s ease 7.2s forwards, starTwinkle 2s ease-in-out 7.6s infinite; }
-.star-2 { top: 38%; left: 14%; animation: starPop 0.4s ease 7.5s forwards, starTwinkle 2.2s ease-in-out 7.9s infinite; }
-.star-3 { bottom: 28%; right: 22%; animation: starPop 0.4s ease 7.8s forwards, starTwinkle 1.8s ease-in-out 8.2s infinite; }
-.star-4 { top: 14%; left: 32%; animation: starPop 0.4s ease 8s forwards, starTwinkle 2.4s ease-in-out 8.4s infinite; }
-.star-5 { bottom: 35%; right: 35%; animation: starPop 0.4s ease 8.2s forwards, starTwinkle 2s ease-in-out 8.6s infinite; }
+.star-1 {
+  top: 22%;
+  right: 18%;
+  animation:
+    starPop 0.4s ease 7.2s forwards,
+    starTwinkle 2s ease-in-out 7.6s infinite;
+}
+.star-2 {
+  top: 38%;
+  left: 14%;
+  animation:
+    starPop 0.4s ease 7.5s forwards,
+    starTwinkle 2.2s ease-in-out 7.9s infinite;
+}
+.star-3 {
+  bottom: 28%;
+  right: 22%;
+  animation:
+    starPop 0.4s ease 7.8s forwards,
+    starTwinkle 1.8s ease-in-out 8.2s infinite;
+}
+.star-4 {
+  top: 14%;
+  left: 32%;
+  animation:
+    starPop 0.4s ease 8s forwards,
+    starTwinkle 2.4s ease-in-out 8.4s infinite;
+}
+.star-5 {
+  bottom: 35%;
+  right: 35%;
+  animation:
+    starPop 0.4s ease 8.2s forwards,
+    starTwinkle 2s ease-in-out 8.6s infinite;
+}
 
 @keyframes starPop {
-  0% { opacity: 0; transform: scale(0); }
-  60% { transform: scale(1.5); }
-  100% { opacity: 1; transform: scale(1); }
+  0% {
+    opacity: 0;
+    transform: scale(0);
+  }
+  60% {
+    transform: scale(1.5);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
 
 @keyframes starTwinkle {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.3; }
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.3;
+  }
 }
 
 /* ========== 退出淡出 ========== */
@@ -270,12 +416,20 @@ onMounted(() => {
 }
 
 @keyframes maskFadeIn {
-  0% { opacity: 0; }
-  100% { opacity: 1; }
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 @keyframes fadeOut {
-  0% { opacity: 1; }
-  100% { opacity: 0; }
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
 }
 </style>

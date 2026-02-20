@@ -44,7 +44,10 @@ function handleStageComplete() {
       </div>
 
       <!-- 动态 Stage -->
-      <Transition :name="currentConfig?.transition?.enterClass ?? 'fade'" mode="out-in">
+      <Transition
+        :name="currentConfig?.transition?.enterClass ?? 'fade'"
+        mode="out-in"
+      >
         <component
           :is="CurrentStage"
           v-if="CurrentStage"
@@ -57,9 +60,9 @@ function handleStageComplete() {
   </Transition>
 
   <!-- 保底背景层，防止 stage 过渡时透出底层页面 -->
-  <div  
-    v-if="!store.isComplete" 
-    class="bg-#0d0a0e absolute inset-0 z-1" 
+  <div
+    v-if="!store.isComplete"
+    class="bg-#0d0a0e absolute inset-0 z-1"
   />
 </template>
 

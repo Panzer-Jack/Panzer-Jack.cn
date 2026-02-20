@@ -7,12 +7,19 @@
   "scripts": {
     "dev": "vite --port 2233 --open",
     "build": "vite-ssg build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "fix": "eslint --fix --ext .ts,.vue src"
   },
   "dependencies": {
     "@unhead/vue": "^2.0.14",
     "@vueuse/core": "^13.6.0",
+    "fs-extra": "^11.3.3",
+    "gray-matter": "^4.0.3",
+    "markdown-it-anchor": "^9.2.0",
+    "markdown-it-prism": "^3.0.1",
+    "markdown-it-table-of-contents": "^1.1.0",
     "pinia": "^3.0.3",
+    "prismjs": "^1.30.0",
     "reading-time": "^1.5.0",
     "vue": "^3.5.18",
     "vue-router": "^4.5.1",
@@ -20,6 +27,7 @@
   },
   "devDependencies": {
     "@panzerjack/eslint-config": "^3.0.0",
+    "@types/fs-extra": "^11.0.4",
     "@types/node": "^24.3.0",
     "@vitejs/plugin-vue": "^6.0.1",
     "@vitejs/plugin-vue-jsx": "^5.0.1",

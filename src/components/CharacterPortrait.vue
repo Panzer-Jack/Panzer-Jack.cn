@@ -14,12 +14,14 @@ const imageSrc = computed(() => {
   const key = `/yulia/${fileName}.png`
   return key
 })
-
 </script>
 
 <template>
   <div class="flex items-center justify-center w-350px">
-    <Transition name="portrait-fade" mode="out-in">
+    <Transition
+      name="portrait-fade"
+      mode="out-in"
+    >
       <img
         v-if="imageSrc"
         :key="`/yulia/${props.expression}.png`"

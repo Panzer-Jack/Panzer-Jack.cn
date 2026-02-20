@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import containerInfoBg from '@/assets/images/container-info.png'
 import { contactConfig } from '@/data/menuItems'
-
 </script>
 
 <template>
@@ -10,7 +9,7 @@ import { contactConfig } from '@/data/menuItems'
     <img
       :src="containerInfoBg"
       class="w-300px h-auto block"
-    />
+    >
 
     <!-- 内容区域 -->
     <div class="absolute inset-0 flex flex-col justify-center items-center px-24px py-16px">
@@ -29,7 +28,7 @@ import { contactConfig } from '@/data/menuItems'
       </a>
 
       <!-- 社交链接 -->
-      <div class="flex w-100px justify-between ">
+      <div class="flex w-100px justify-between">
         <a
           v-for="link in contactConfig.socialLinks"
           :key="link.icon"
@@ -38,10 +37,22 @@ import { contactConfig } from '@/data/menuItems'
           rel="noopener noreferrer"
           class="color-tno-text hover:color-tno-accent transition-colors "
         >
-          <i-object-github v-if="link.icon === 'github'" class="w-16px h-16px" />
-          <i-object-bilibili v-else-if="link.icon === 'bilibili'" class="w-16px h-16px" />
-          <i-object-x v-else-if="link.icon === 'x'" class="w-16px h-16px" />
-          <i-object-rss v-else-if="link.icon === 'rss'" class="w-16px h-16px" />
+          <i-object-github
+            v-if="link.icon === 'github'"
+            class="w-16px h-16px"
+          />
+          <i-object-bilibili
+            v-else-if="link.icon === 'bilibili'"
+            class="w-16px h-16px"
+          />
+          <i-object-x
+            v-else-if="link.icon === 'x'"
+            class="w-16px h-16px"
+          />
+          <i-object-rss
+            v-else-if="link.icon === 'rss'"
+            class="w-16px h-16px"
+          />
         </a>
       </div>
     </div>

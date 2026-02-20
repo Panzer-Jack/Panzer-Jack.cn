@@ -18,12 +18,12 @@ const formattedCount = computed(() => {
 </script>
 
 <template>
-  <div class="flex flex-col justify-between items-center h-auto">
+  <div class="flex flex-col justify-between items-center">
     <!-- 背景图作为尺寸基准，自动按比例缩放 -->
     <img
       :src="containerAuthorBg"
       class="w-300px h-auto block object-center"
-    />
+    >
 
     <!-- 简介区域 -->
     <div class="absolute flex flex-col z-1 mt-250px w-230px">
@@ -36,40 +36,14 @@ const formattedCount = computed(() => {
     </div>
 
     <!-- 数字显示器区域 -->
-    <div class="absolute bottom-6px right-40px flex z-1 gap-2px">
+    <div class="relative bottom-31px right--60px flex z-1 gap-2px">
       <span
         v-for="(digit, index) in formattedCount"
         :key="index"
-        class="digit-cell w-15px h-24px flex items-center justify-center text-12px font-mono color-tno-active-text"
+        class="w-15px h-24px flex items-center justify-center text-12px font-mono color-tno-active-text bg-gradient-to-b from-[#1a1a1a] to-[#0d0d0d] border-1px border-solid border-[#3a3a3a] rounded-2px [box-shadow:inset_0_1px_3px_rgba(0,0,0,0.6),0_1px_0_rgba(255,255,255,0.08)]"
       >
         {{ digit }}
       </span>
     </div>
   </div>
 </template>
-
-<style scoped>
-.digit-cell {
-  background: linear-gradient(180deg, #1a1a1a 0%, #0d0d0d 100%);
-  border: 1px solid #3a3a3a;
-  border-radius: 2px;
-  box-shadow:
-    inset 0 1px 3px rgba(0, 0, 0, 0.6),
-    0 1px 0 rgba(255, 255, 255, 0.08);
-}
-
-.author-card {
-  animation: cardFadeIn 0.6s ease forwards;
-}
-
-@keyframes cardFadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-</style>

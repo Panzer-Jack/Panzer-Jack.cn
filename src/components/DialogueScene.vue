@@ -70,7 +70,10 @@ onUnmounted(() => {
         class="flex flex-col items-center w-full max-w-650px px-20px"
       >
         <!-- 立绘（居中上方） -->
-        <div v-if="showPortrait" class="mb--20px">
+        <div
+          v-if="showPortrait"
+          class="mb--20px"
+        >
           <CharacterPortrait
             :expression="currentExpression"
           />

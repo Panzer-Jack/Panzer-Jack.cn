@@ -28,7 +28,10 @@ const emit = defineEmits<{
 
   <!-- 抽屉面板 -->
   <Transition name="slide-up">
-    <div v-if="isOpen" class="drawer-panel fixed bottom-0 left-0 right-0 z-201">
+    <div
+      v-if="isOpen"
+      class="drawer-panel fixed bottom-0 left-0 right-0 z-201"
+    >
       <!-- 拖拽指示器 -->
       <div class="drag-handle flex justify-center pt-12px pb-8px">
         <span class="handle-bar" />
@@ -48,9 +51,9 @@ const emit = defineEmits<{
       <!-- 菜单列表 -->
       <nav class="flex flex-col justify-center items-center px-30px pb-32px">
         <MenuItem
-          class="mt-10px"
           v-for="(item, index) in items"
           :key="item.id"
+          class="mt-10px"
           :item="item"
           :index="index"
           :is-active="item.id === activeId"
@@ -114,12 +117,7 @@ const emit = defineEmits<{
 
 .header-line {
   height: 1px;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    #00d4aa,
-    transparent
-  );
+  background: linear-gradient(90deg, transparent, #00d4aa, transparent);
 }
 
 /* 角落装饰 */
@@ -130,8 +128,18 @@ const emit = defineEmits<{
   border: 2px solid #00d4aa;
 }
 
-.corner-tl { top: 8px; left: 8px; border-right: none; border-bottom: none; }
-.corner-tr { top: 8px; right: 8px; border-left: none; border-bottom: none; }
+.corner-tl {
+  top: 8px;
+  left: 8px;
+  border-right: none;
+  border-bottom: none;
+}
+.corner-tr {
+  top: 8px;
+  right: 8px;
+  border-left: none;
+  border-bottom: none;
+}
 
 /* 过渡动画 */
 .fade-enter-active,

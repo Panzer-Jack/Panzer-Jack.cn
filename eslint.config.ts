@@ -5,6 +5,7 @@ export default panzerjack({
   vue: true,
   pnpm: true,
   formatters: true,
+  markdown: false,
   rules: {
     'no-console': 'off',
   },

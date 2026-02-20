@@ -5,5 +5,5 @@ export default {
       unitPrecision: 6,
       minPixelValue: 2, // 小于2px的样式不会被转成rem，因为在部分设备上可能会出现小于1px而渲染失
     },
-  }
+  },
 }

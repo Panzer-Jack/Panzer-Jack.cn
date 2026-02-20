@@ -1,7 +1,8 @@
 import type { MenuItem, MenuState } from '@/types/menu'
+import { defineStore } from 'pinia'
 import { mainMenuItems } from '@/data/menuItems'
 
-export function useMainMenu() {
+export const useMenuStore = defineStore('mainMenu', () => {
   const router = useRouter()
   const route = useRoute()
 
@@ -25,8 +26,7 @@ export function useMainMenu() {
   function navigateTo(item: MenuItem) {
     if (item.external) {
       window.open(item.path, '_blank')
-    }
-    else {
+    } else {
       router.push(item.path)
     }
     state.isDrawerOpen = false
@@ -49,4 +49,4 @@ export function useMainMenu() {
     toggleDrawer,
     closeDrawer,
   }
-}
+})

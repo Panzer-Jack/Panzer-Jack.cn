@@ -33,8 +33,7 @@ export const usePrologueStore = defineStore('prologue', () => {
   function completeCurrentStage(nextStageId?: string) {
     if (nextStageId) {
       goToStage(nextStageId)
-    }
-    else {
+    } else {
       completePrologue()
     }
   }

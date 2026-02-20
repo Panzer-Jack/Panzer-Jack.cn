@@ -1,17 +1,22 @@
 <script setup lang="ts">
-import { useMainMenu } from '@/composables/useMainMenu'
+import { useMobile } from '@/composables/useMobile'
+import { useMenuStore } from '@/stores/menu'
 
-const { items, state, navigateTo, toggleDrawer, closeDrawer } = useMainMenu()
+const { items, state, navigateTo, toggleDrawer, closeDrawer } = useMenuStore()
 
 // 响应式断点
-const isMobile = useMediaQuery('(max-width: 768px)')
+const { isMobile } = useMobile()
+const cardClass = computed(() => isMobile.value ? 'flex justify-center items-center relative' : 'absolute right-30px w-300px')
 </script>
 
 <template>
   <div class="h-100vh w-100vw relative">
-
-    <AuthorCard class="absolute right-30px w-300px" />
-    <ContactCard class="absolute right-30px top-385px w-300px" />
+    <Transition name="menu-fade">
+      <div v-show="!state.activeId">
+        <AuthorCard :class="cardClass" />
+        <ContactCard :class="[cardClass, !isMobile ? 'top-385px' : 'top--20px']" />
+      </div>
+    </Transition>
 
     <!-- PC 端固定面板 -->
     <MenuPanel
@@ -19,7 +24,7 @@ const isMobile = useMediaQuery('(max-width: 768px)')
       :items="items"
       :active-id="state.activeId"
       @select="navigateTo"
-    /> 
+    />
 
     <!-- 移动端浮动按钮 -->
     <button
@@ -46,12 +51,14 @@ const isMobile = useMediaQuery('(max-width: 768px)')
 </template>
 
 <style scoped>
-/* 打开状态样式 */
-.mobile-trigger.is-open {
-  @apply bg-[rgba(0,212,170,0.2)] border-tno-accent;
+.menu-fade-enter-active {
+  transition-property: all;
+  transition-duration: 500ms;
+  transition-timing-function: ease;
 }
 
-.mobile-trigger.is-open .trigger-icon {
-  @apply rotate-90;
+.menu-fade-enter-from {
+  opacity: 0;
+  transform: translateX(-1.25rem);
 }
 </style>

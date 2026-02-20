@@ -1,51 +1,42 @@
 <script setup lang="ts">
-import readingTime from 'reading-time/lib/reading-time'
-import PrologueContainer from './prologue/PrologueContainer.vue'
-import { usePrologueStore } from '@/stores/prologue'
-import w from './w.md?raw'
 import main from '@/assets/images/main.png'
+import { usePrologueStore } from '@/stores/prologue'
+import PrologueContainer from './prologue/PrologueContainer.vue'
+import { useMenuStore } from './stores/menu'
 
-const store = usePrologueStore()
-
-// 响应式断点
-const isMobile = useMediaQuery('(max-width: 768px)')
-
-// 读取原始的md
-onMounted(async () => {
-  console.log('文章阅读时间估算:', readingTime(w))
-})
-
+const prologueStore = usePrologueStore()
+const menuStore = useMenuStore()
+prologueStore.isComplete = true
 </script>
 
 <template>
   <!-- 开场动画 -->
-  <PrologueContainer v-if="store.shouldShowPrologue" />
+  <PrologueContainer v-if="prologueStore.shouldShowPrologue" />
 
-  <div 
+  <div
     class="bg-gothic-bg w-100vw h-100vh fixed z--1"
-    :style="{ backgroundImage: `url(${main})`, backgroundSize: 'cover', backgroundPosition: 'center' }"
+    :style="{ backgroundImage: `url(${main})`, backgroundSize: 'cover', backgroundPosition: '80%' }"
   />
 
-  <!-- TNO 主菜单 (开场完成后显示) -->
-  <Transition name="menu-fade">
-    <Menu v-if="store.isComplete" />
-  </Transition>
+  <Menu v-if="prologueStore.isComplete" />
 
   <!-- 主内容 -->
-  <!-- <main
-    class="min-h-screen text-text-primary transition-all duration-300"
-    :class="{ 'ml-280px': store.isComplete && !isMobile }"
-  >
-    <RouterView />
-  </main> -->
+  <Transition name="main-fade">
+    <Layout v-if="prologueStore.isComplete && menuStore.state.activeId">
+      <RouterView />
+    </Layout>
+  </Transition>
 </template>
 
 <style scoped>
-.menu-fade-enter-active {
-  @apply transition-all duration-500 ease;
+.main-fade-enter-active {
+  transition-property: all;
+  transition-duration: 500ms;
+  transition-timing-function: ease;
 }
 
-.menu-fade-enter-from {
-  @apply opacity-0 -translate-x-5;
+.main-fade-enter-from {
+  opacity: 0;
+  transform: translateY(-1.25rem);
 }
 </style>

@@ -1,6 +1,7 @@
 /* 引入主题样式 */
 @import './theme/gothic.css';
 @import './theme/animations.css';
+@import './theme/markdown.css';
 
 * {
   box-sizing: border-box;
@@ -28,9 +29,8 @@ img {
 }
 
 img {
-  pointer-events: none;      /* 彻底禁用鼠标事件，含右键 */
+  pointer-events: none; /* 彻底禁用鼠标事件，含右键 */
 }
-
 
 :root {
   font-family: 'special-common', 'PingFang SC';
