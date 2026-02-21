@@ -9,7 +9,7 @@
   <body>
     <div id="app"></div>
     <script type="module" src="/src/main.ts"></script>
-        <script>
+    <script>
       ;(function flexible(window, document) {
         var docEl = document.documentElement
         var dpr = window.devicePixelRatio || 1
@@ -20,7 +20,7 @@
             document.body.style.fontSize = 12 * dpr + 'px'
           } else {
             document.addEventListener('DOMContentLoaded', setBodyFontSize)
-          } 
+          }
         }
         setBodyFontSize()
 

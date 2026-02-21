@@ -1,0 +1,199 @@
+/**
+ * Waline 评论系统 - TNO 终端风格覆盖
+ * 优先通过官方 CSS 变量覆盖，额外 CSS 仅用于变量无法实现的效果
+ */
+
+/* ========== CSS 变量覆盖（按官方变量表结构） ========== */
+[data-waline] {
+  /* 字体大小 */
+  --waline-font-size: 12px;
+
+  /* 常规颜色 */
+  --waline-white: #0a121a;
+  --waline-light-grey: #6b8a8a;
+  --waline-dark-grey: #8ba8a8;
+
+  /* 主题色 */
+  --waline-theme-color: #00d4aa;
+  --waline-active-color: #00ffcc;
+
+  /* 布局颜色 */
+  --waline-color: #e8f0f0;
+  --waline-bg-color: rgba(10, 18, 26, 0.6);
+  --waline-bg-color-light: rgba(0, 212, 170, 0.05);
+  --waline-bg-color-hover: rgba(0, 212, 170, 0.08);
+  --waline-border-color: rgba(0, 212, 170, 0.15);
+  --waline-disable-bg-color: rgba(10, 18, 26, 0.4);
+  --waline-disable-color: #6b8a8a;
+  --waline-code-bg-color: rgba(0, 212, 170, 0.08);
+
+  /* 特殊颜色 */
+  --waline-bq-color: rgba(0, 212, 170, 0.06);
+
+  /* 头像 */
+  --waline-avatar-size: 3.25em;
+  --waline-m-avatar-size: calc(var(--waline-avatar-size) * 9 / 13);
+
+  /* 徽章 */
+  --waline-badge-color: #00d4aa;
+  --waline-badge-font-size: 0.775em;
+
+  /* 信息 */
+  --waline-info-bg-color: rgba(0, 212, 170, 0.06);
+  --waline-info-color: #6b8a8a;
+  --waline-info-font-size: 0.625em;
+
+  /* 渲染选择 */
+  --waline-border: 1px solid var(--waline-border-color);
+  --waline-avatar-radius: 50%;
+  --waline-box-shadow: 0 2px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* ========== 全局样式隔离（防止 gothic.css / main.css 污染） ========== */
+
+/* 覆盖全局 img { pointer-events: none; user-select: none } */
+[data-waline] img {
+  pointer-events: auto;
+  user-select: auto;
+  margin: 0;
+  border: none;
+}
+
+/* 覆盖全局 a { color: var(--violet-light) } */
+[data-waline] a {
+  color: var(--waline-theme-color);
+  text-decoration: none;
+  text-shadow: none;
+}
+
+[data-waline] a:hover {
+  color: var(--waline-active-color);
+}
+
+/* ==========================================================
+   以下为变量无法实现的额外样式（毛玻璃、发光、渐变等）
+   ========================================================== */
+
+/* 面板：毛玻璃 + focus 发光 */
+.wl-panel {
+  backdrop-filter: blur(4px);
+  transition:
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.wl-panel:focus-within {
+  border-color: rgba(0, 212, 170, 0.3);
+  box-shadow: 0 0 16px rgba(0, 212, 170, 0.1);
+}
+
+/* 输入框：光标色 + placeholder */
+.wl-header input,
+.wl-editor {
+  caret-color: #00ffcc;
+}
+
+.wl-header input::placeholder,
+.wl-editor::placeholder {
+  color: #6b8a8a;
+}
+
+/* 卡片：hover 高亮 */
+.wl-card-item {
+  transition: background 0.25s ease;
+  border-radius: 4px;
+}
+
+.wl-card-item:hover {
+  background: rgba(0, 212, 170, 0.03);
+}
+
+/* 链接 / 昵称：hover 发光 */
+.wl-card a.wl-nick:hover {
+  text-shadow: 0 0 8px rgba(0, 255, 204, 0.4);
+}
+
+.wl-card .wl-content a {
+  text-decoration-color: rgba(0, 212, 170, 0.35);
+}
+
+.wl-card .wl-content a:hover {
+  text-shadow: 0 0 6px rgba(0, 255, 204, 0.3);
+}
+
+/* 展开遮罩：覆盖源码中硬编码的白色渐变 */
+.wl-card .wl-content.expand::before {
+  background: linear-gradient(180deg, transparent, rgba(10, 18, 26, 0.95));
+}
+
+.wl-card .wl-content.expand::after {
+  background: rgba(10, 18, 26, 0.95);
+  color: #6b8a8a;
+}
+
+/* 嵌套引用线：覆盖源码中硬编码的 rgba(237,237,237,.5) */
+.wl-card .wl-quote {
+  border-inline-start: 1px dashed rgba(0, 212, 170, 0.15);
+}
+
+/* 按钮：渐变背景 + hover 发光（变量只支持纯色） */
+.wl-btn:hover,
+.wl-btn:active {
+  box-shadow: 0 0 10px rgba(0, 212, 170, 0.2);
+}
+
+.wl-btn.primary {
+  background: linear-gradient(135deg, #006b55, #00d4aa);
+  font-weight: 600;
+}
+
+.wl-btn.primary:hover,
+.wl-btn.primary:active {
+  background: linear-gradient(135deg, #00d4aa, #00ffcc);
+  box-shadow: 0 0 16px rgba(0, 255, 204, 0.35);
+}
+
+/* 操作按钮：hover 发光 text-shadow */
+.wl-card .wl-delete:hover,
+.wl-card .wl-like:hover,
+.wl-card .wl-reply:hover,
+.wl-card .wl-edit:hover {
+  text-shadow: 0 0 6px rgba(0, 255, 204, 0.3);
+}
+
+/* Emoji / GIF 弹出层：毛玻璃 */
+.wl-emoji-popup,
+.wl-gif-popup {
+  backdrop-filter: blur(6px);
+}
+
+/* GIF 图片边框：覆盖源码中硬编码的 #fff */
+.wl-gif-popup img {
+  border-color: transparent;
+}
+
+/* 评论计数：发光数字 */
+.wl-count .wl-num {
+  color: #00ffcc;
+  text-shadow: 0 0 6px rgba(0, 255, 204, 0.3);
+}
+
+/* Powered by：覆盖全局 a 标签样式干扰 */
+.wl-power,
+.wl-power a {
+  color: #6b8a8a !important;
+}
+
+.wl-power a:hover {
+  color: #00d4aa !important;
+}
+
+/* Reaction：hover 发光 */
+.wl-reaction-item:hover img,
+.wl-reaction-item.active img {
+  filter: drop-shadow(0 0 4px rgba(0, 212, 170, 0.4));
+}
+
+.wl-meta-foot {
+  display: none;
+}

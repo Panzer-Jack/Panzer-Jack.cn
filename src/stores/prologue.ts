@@ -1,17 +1,28 @@
 import { defineStore } from 'pinia'
 
+const PROLOGUE_COMPLETE_KEY = 'prologue-complete-at'
+const THREE_DAYS_MS = 3 * 24 * 60 * 60 * 1000
+
+function isPrologueRecentlyCompleted(): boolean {
+  const timestamp = localStorage.getItem(PROLOGUE_COMPLETE_KEY)
+  if (!timestamp) return false
+  return Date.now() - Number(timestamp) < THREE_DAYS_MS
+}
+
 export const usePrologueStore = defineStore('prologue', () => {
+  const recentlyCompleted = isPrologueRecentlyCompleted()
+
   // 当前 stage ID (从 stage2 开场动画开始)
   const currentStageId = ref<string>('stage1')
 
   // 是否正在过渡
   const isTransitioning = ref(false)
 
-  // 是否完成全部
-  const isComplete = ref(false)
+  // 是否完成全部（3天内播放过或跳过过则直接完成）
+  const isComplete = ref(recentlyCompleted)
 
   // 是否显示开场
-  const shouldShowPrologue = ref(true)
+  const shouldShowPrologue = ref(!recentlyCompleted)
 
   // 计算属性
   const isMainMenu = computed(() => isComplete.value)
@@ -46,6 +57,7 @@ export const usePrologueStore = defineStore('prologue', () => {
     setTimeout(() => {
       isComplete.value = true
       isTransitioning.value = false
+      localStorage.setItem(PROLOGUE_COMPLETE_KEY, String(Date.now()))
     }, 500)
   }
 
@@ -64,6 +76,7 @@ export const usePrologueStore = defineStore('prologue', () => {
     isTransitioning.value = false
     isComplete.value = false
     shouldShowPrologue.value = true
+    localStorage.removeItem(PROLOGUE_COMPLETE_KEY)
   }
 
   return {

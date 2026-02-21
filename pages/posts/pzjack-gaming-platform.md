@@ -3,8 +3,6 @@ title: 装甲杰克-游戏联机平台
 date: "2023-02-09 13:02:26"
 tags:
     - 项目
-top_img: https://pic.imgdb.cn/item/634f824416f2c2beb10acc6e.jpg
-cover: https://pic.imgdb.cn/item/634f824416f2c2beb10acc6e.jpg
 ---
 
 <p align="center">

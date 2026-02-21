@@ -7,7 +7,8 @@ const { frontmatter } = defineProps({
     required: true,
   },
 })
-const { isPostDetail } = useLayout()
+const { isPostDetail, isAbout } = useLayout()
+const route = useRoute()
 
 function formatPostDate(date: string) {
   return new Date(date).toLocaleTimeString('zh-CN', {
@@ -19,7 +20,10 @@ function formatPostDate(date: string) {
 </script>
 
 <template>
-  <div class="markdown-body">
+  <div
+    v-key="route.path"
+    class="markdown-body"
+  >
     <div v-show="isPostDetail">
       <h1>{{ frontmatter.title }}</h1>
       <blockquote>
@@ -35,5 +39,12 @@ function formatPostDate(date: string) {
       >
     </div>
     <slot />
+  </div>
+
+  <div
+    v-show="isPostDetail || isAbout"
+    class="mt-6"
+  >
+    <Waline />
   </div>
 </template>

@@ -20,10 +20,12 @@ export const useLayout = () => {
   const isPostDetail = computed(() => {
     return isPost.value && route.path !== '/posts'
   })
+  const isAbout = computed(() => route.path === '/about')
 
   return {
     currentTitle,
     isPost,
     isPostDetail,
+    isAbout,
   }
 }

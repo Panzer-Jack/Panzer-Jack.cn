@@ -38,6 +38,10 @@ const formattedCount = computed(() => {
     <!-- 数字显示器区域 -->
     <div class="relative bottom-31px right--60px flex z-1 gap-2px">
       <span
+        class="waline-pageview-count"
+        data-path="/"
+      />
+      <span
         v-for="(digit, index) in formattedCount"
         :key="index"
         class="w-15px h-24px flex items-center justify-center text-12px font-mono color-tno-active-text bg-gradient-to-b from-[#1a1a1a] to-[#0d0d0d] border-1px border-solid border-[#3a3a3a] rounded-2px [box-shadow:inset_0_1px_3px_rgba(0,0,0,0.6),0_1px_0_rgba(255,255,255,0.08)]"

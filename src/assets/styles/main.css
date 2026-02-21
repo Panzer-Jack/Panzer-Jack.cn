@@ -2,6 +2,7 @@
 @import './theme/gothic.css';
 @import './theme/animations.css';
 @import './theme/markdown.css';
+@import './theme/waline.css';
 
 * {
   box-sizing: border-box;

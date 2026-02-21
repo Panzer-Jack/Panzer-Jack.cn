@@ -15,7 +15,6 @@ defineProps<Props>()
 const emit = defineEmits<{
   select: [item: MenuItemType]
 }>()
-
 </script>
 
 <template>
