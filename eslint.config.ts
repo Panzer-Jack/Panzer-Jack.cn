@@ -8,5 +8,8 @@ export default panzerjack({
   markdown: false,
   rules: {
     'no-console': 'off',
+    'no-irregular-whitespace': 'off',
+    'style/no-tabs': 'off',
+    'style/no-mixed-spaces-and-tabs': 'off',
   },
 })

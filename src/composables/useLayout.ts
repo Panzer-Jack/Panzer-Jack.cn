@@ -21,11 +21,15 @@ export const useLayout = () => {
     return isPost.value && route.path !== '/posts'
   })
   const isAbout = computed(() => route.path === '/about')
+  const isLink = computed(() => route.path === '/links')
+  const isProject = computed(() => route.path === '/projects')
 
   return {
     currentTitle,
     isPost,
     isPostDetail,
     isAbout,
+    isLink,
+    isProject,
   }
 }

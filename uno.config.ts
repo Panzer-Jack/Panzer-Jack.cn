@@ -10,6 +10,13 @@ import {
 } from 'unocss'
 
 export default defineConfig({
+  safelist: [
+    // ListProjects 动态图标 (添加新项目图标时需同步更新)
+    'i-carbon-machine-learning-model',
+    'i-carbon-face-wink',
+    'i-carbon-blog',
+    'i-carbon-image',
+  ],
   shortcuts: {
     // TNO 风格按钮
     'tno-btn': 'bg-tno-bg-90 border-2px border-tno-border text-tno-text-muted cursor-pointer transition-all duration-200',

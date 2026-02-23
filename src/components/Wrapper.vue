@@ -7,7 +7,7 @@ const { frontmatter } = defineProps({
     required: true,
   },
 })
-const { isPostDetail, isAbout } = useLayout()
+const { isPostDetail, isAbout, isLink, isProject } = useLayout()
 const route = useRoute()
 
 function formatPostDate(date: string) {
@@ -41,7 +41,7 @@ function formatPostDate(date: string) {
     <slot />
   </div>
 
-  <div v-show="isPostDetail || isAbout">
+  <div v-show="isPostDetail || isAbout || isLink || isProject">
     <div class="markdown-body mt-80px mb-20px">
       <hr>
     </div>

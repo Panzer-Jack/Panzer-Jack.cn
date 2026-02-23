@@ -1,24 +1,54 @@
 ---
 title: 关于博主
-date: "2022-10-19 12:44:47"
-top_img: https://pic1.imgdb.cn/item/624bee62239250f7c5566d31.jpg
 ---
 
-# 关于我
+> Ciallo～(∠・ω< )⌒★ 想知道 和 老船长 交朋友的 最佳实践 吗？
 
-我目前是一名来自中国上海的刚毕业没多久的大学生（划掉，已经毕业了），主修计算机网络. 平时喜欢做一些有趣的开源项目并且学习一些好玩的东西。比如一些能在生活中为我节省寿命的物联网小工具，奇奇怪怪的小网站 ~(比如赛博女友)~ 等。
+# 前奏曲·从PanzerJack到“老船长”的不可思议前世今生～
 
-我喜欢很多东西 ~（是个高贵的二次元御宅）~ 比如看番、轻小说、Galgame, 等一切ACGN领域的元素。目前也在自学电子绘画和音乐。
+> 兼具梦想和现实的世界。满怀美梦的现实主义者这句话打从一开始就不存在矛盾
+>
+>                    ---- 摘自 轻小说《夢見る男子は現実主義者》的第六卷后记；作者：おけまる
 
-未来准备做一个偏前端的 Web Dev，来实现经济自由（ 做更多我感兴趣的事情 ）
+工作时是 噼里啪啦直播前端 开发工程师，平常是 一个有梦想的高贵二次元御宅
 
-我是一个现实主义的梦想家，曾经的我有许多梦想：比如开一个兴趣工作室做一些有趣的东西，比如成为一名独立游戏制作人，或者像命运之之门的“胸针”一样找到一群志同道合的Lab member做一些有趣的小发明。确实，在大学前两年，我非常幸运遇到了如今我的Lab member 和2个人非常好的老师，给了我们一个小实验室来给我们当“避难所”。 前两年里我也非常愉快的过着梦想中的中二般的 mad scientist 生活，（如今想想穿着白大褂在校园里走来走去，突然感觉有点羞耻。。。。(＊／ω＼＊) ）但是如今也马上进入大学的后半段，终究也是得面对如今所有计算机专业的学生都得面对的现实，我并不是有着像胸针一样男主角光环，没有发现 Time Machine 微波炉 的运气，没有像无敌hacker 桶子一样的超强技术, 更没有一个天才助手的女主角（悲）。有的只是能看到Lab member各奔东西的不远的未来。毕竟我们这几个都不是同一个专业的，有机械、电子、嵌入式、计算机等等，大家因为兴趣和竞赛凑合在一起，也正会因为这些走向不同的路，因此不免也得朝前看，仔细思考自己的未来。
+顺带一提：曾经老船长在实习的时候并不叫老船长，而是叫PanzerJack
+
+老船长PZ_Jack = 特图蛤的老船长 + Panzer_Jack（常用的2个游戏名）
+
+●（虽然改新名字 也有部分原因是因为 当时同事都念不来英文名 导致后面直接叫我真名了。。
+
+# 第一话·现在进行形の御宅人生
+
+<AboutMeTable />
+
+# 第二话·通往老船长的传送门
+
+- Email：panzer-jack@panzer-jack.com
+- Github：https://github.com/Panzer-Jack
+- X (Twitter)：https://x.com/Panzer_Jack
+- Bilibili：https://space.bilibili.com/409759250
+
+# 终章·老船長の孤高人生
+
+> 这从破晓之际到华灯初上间，只能存在短短一瞬的，金色的世界。
+>
+> 世界的每一天，永远都落幕得如此绚丽。金色的天空逐渐被黑色吞没，那颜色真美。
+>
+> 我眼前的世界，无论何处皆是一片漆黑。而从某时起，我的世界照进一丝金色的光芒。
+> ![](./image.png)
+
+我是一个现实主义的梦想家，曾经的我有许多梦想：比如开一个兴趣工作室做一些有趣的东西，比如成为一名独立游戏制作人，或者像命运之之门的“胸针”一样找到一群志同道合的Lab member做一些有趣的小发明。确实，在大学中，我非常幸运遇到了志同道合的Lab member 和2个人非常好的老师，给了我们一个小实验室来给我们当“避难所”。 前两年里我也非常愉快的过着梦想中的中二般的 mad scientist 生活，（如今想想穿着白大褂在校园里走来走去，突然感觉有点羞耻。。。。(＊／ω＼＊) ）但是“楚门”终究有一天会认识到虚假的“桃源岛”，我并不是有着像胸针一样男主角光环，没有发现 Time Machine 微波炉 的运气，没有像无敌hacker 桶子一样的超强技术, 更没有一个天才助手的女主角（悲）。有的只是能看到Lab member各奔东西的不远的未来。毕竟我们这几个都不是同一个专业的，有机械、电子、嵌入式、计算机等等，大家因为兴趣和竞赛凑合在一起，也正会因为这些走向不同的路，因此不免也得朝前看，仔细思考自己的未来。
 
 那么放弃吗？自己的理想主义。肯定不啊，ο(=• ω <=)づ☆.。，即使如今可能需要暂时搁置掉这些，但在不远的未来，只要有可能，我依然会去寻找属于我自己的理想 Life Style。
 
-到最后的最后我想附上一段 おけまる 老师 在 《夢見る男子は現実主義者》的第六卷后记里写的一段话:
+我喜欢很多东西 ~（是个高贵的二次元御宅）~ 比如看番、轻小说、Galgame, 等一切ACGN领域的元素。目前也在自学电子绘画和音乐。
+
+未来的梦想是成为一名厉害的Geek，来实现经济自由（ 能做更多有意思的事情！以及度过剩下的高贵御宅人生！～ ）
 
 ---
+
+到最后的最后我想附上一段 おけまる 老师 在 《夢見る男子は現実主義者》的第六卷后记里写的一段话:
 
 ( 摘自 《夢見る男子は現実主義者》的第六卷后记 )
 
@@ -41,83 +71,3 @@ top_img: https://pic1.imgdb.cn/item/624bee62239250f7c5566d31.jpg
 期待有一天我能以读者的身分参与各位的作品。
 
 以上，我是おけまる。
-
----
-
-- ## 未来:
-
-    <!-- 1. 可能会准备计算机研究生考试 (2024-2025) -->
-    <!-- Preparing for postgraduate entrance examination (2024-2025 Maybe?) -->
-  1. 前端 ----> 全栈
-     On the road to becoming a Full Stack Engineer with Golang and Vue3
-
-  2. 想学点有趣的东西
-     Becoming a amateur Indie Game Producer. Maybe Cocos Creator or original WebGL ?
-
-  3. 来电快乐
-     Sleeping -> Playing Galgame -> Sleeping...
-
-- ## 教育经历:
-  1. 上海第二工业大学 --- 网络工程 (2021-2025)
-     Network Engineering undergraduate in Shanghai Second Polytechnic University (2021-2025)
-
-<!-- - ## 实习经历：
-
-    1.  <div style="display:flex;">
-            <div style="flex:1;">2023.11 - 至今</div>
-            <div style="flex:2;">⽹易（杭州）</div>
-            <div style="flex:1;">现役ing</div>
-        </div>
-
-    2.  <div style="display:flex;">
-            <div style="flex:1;">2023.08 - 2023.11</div>
-            <div style="flex:2;">WinToPay</div>
-            <div style="flex:1;"></div>
-        </div>
-        <ul>
-            <li>独立负责完成公司 Wintopay官网 国际化开发以及架构升级任务，将其由 Vue2 升级为 Vue3.3 + TypeScipt</li>
-            <li>配合UI设计师完成公司的子公司的官网UI设计开发，并封装制作公司组件库。</li>
-            <li>负责公司商户系统的界面优化需求以及优化Vite打包架构，优化B端客户使用体验。</li>
-            <li>协助公司风控部的数据工程师 开发 Python 后端逻辑接口部署AI预测模型, 并对接到支付系统。</li>
-        </ul> -->
-
-- ## 业余爱好：
-  1. 看轻小说、打 Galgame
-     Read light novel. A galgame gamer, specially - Yuzusoft
-  2. 口琴, 电子琴, 电子板绘
-     An amateur in playing harmonica, piano and digital painting.
-
-- ## 做过些好玩的东西：
-  1. 数控云 - 数控设备的泛用性云监控IOT平台
-     ① [项目地址](http://cnc-iot-system.panzer-jack.cn/)
-     ② [项目介绍](https://www.panzer-jack.cn/2023/05/08/%E6%95%B0%E6%8E%A7%E4%BA%91-%E6%95%B0%E6%8E%A7%E8%AE%BE%E5%A4%87%E7%9A%84%E6%B3%9B%E7%94%A8%E6%80%A7%E4%BA%91%E7%9B%91%E6%8E%A7IOT%E5%B9%B3%E5%8F%B0/)
-  2. Cyber AI-Waife
-     ① [项目地址](https://github.com/Panzer-Jack/Cyber_AI-Waife)
-     ② [项目介绍](https://www.panzer-jack.cn/2023/05/18/Cyber-AI-Waife/)
-  3. 智能防疫门禁系统
-     ① [项目地址]()
-     ② [项目介绍](https://www.panzer-jack.cn/2022/11/18/%E6%99%BA%E8%83%BD%E9%98%B2%E7%96%AB%E9%97%A8%E7%A6%81%E7%B3%BB%E7%BB%9F/)
-  4. QQ 群聊美少女语音AI（ChatGLM 本地化版本）
-     ① [项目地址](https://github.com/Panzer-Jack/ChatGLM_VITS_For_QQ-Rob)
-     ② [项目介绍](https://www.panzer-jack.cn/2023/05/05/QQ-%E7%BE%A4%E8%81%8A%E7%BE%8E%E5%B0%91%E5%A5%B3%E8%AF%AD%E9%9F%B3AI%EF%BC%88ChatGLM-%E6%9C%AC%E5%9C%B0%E5%8C%96%E7%89%88%E6%9C%AC%EF%BC%89/)
-  5. QQ 群聊美少女语音AI（ChatGPT 版）
-     ① [项目地址](https://github.com/Panzer-Jack/ChatGPT_VITS_For_QQ-Rob)
-     ② [项目介绍](https://www.panzer-jack.cn/2023/02/26/QQ%20%E7%BE%A4%E8%81%8A%E7%BE%8E%E5%B0%91%E5%A5%B3%E8%AF%AD%E9%9F%B3AI%EF%BC%88ChatGPT%E7%89%88%EF%BC%89/)
-
-<!-- - ## 个人项目总集：
-    项目集：https://www.panzer-jack.cn/categories/%E9%A1%B9%E7%9B%AE/ -->
-
-<!-- - ## 个人经历及获奖：
-    1. <span style="float:left;">The 6th ByteDance Youth Training Camp（ Frontend Advanced Class ）</span> <span style="float:right; margin-right: 20vmin;"></span>
-    2. <span style="float:left;">软著（第一作者）</span> <span style="float:right; margin-right: 20vmin;">2篇</span>
-    3. <span style="float:left;">“天翼云杯”上海市大学生云计算应用大赛</span>  <span style="float:right; margin-right: 20vmin;">总决赛 一等奖</span>
-    4. <span style="float:left;">挑战杯 全国大学生课外学术科技作品竞赛</span>  <span style="float:right; margin-right: 20vmin;">省铜</span>
-    5. <span style="float:left;">工巡赛-“智能+” 智能物流机器人</span>  <span style="float:right; margin-right: 20vmin;">省一</span>
-    6. <span style="float:left;">校学业奖学金</span>  <span style="float:right; margin-right: 20vmin;">二等</span> -->
-
----
-
-## Link:
-
-1. #### Email: panzer-jack@panzer-jack.com
-2. #### Github：https://github.com/Panzer-Jack

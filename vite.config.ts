@@ -97,6 +97,9 @@ export default defineConfig({
         object: FileSystemIconLoader(
           './src/assets/icons/object',
         ),
+        project: FileSystemIconLoader(
+          './src/assets/icons/project',
+        ),
       },
     }),
   ],
