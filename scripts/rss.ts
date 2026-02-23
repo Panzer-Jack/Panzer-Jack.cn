@@ -4,6 +4,7 @@ import fg from 'fast-glob'
 import { Feed } from 'feed'
 import fs from 'fs-extra'
 import matter from 'gray-matter'
+// @ts-expect-error missing types
 import MarkdownIt from 'markdown-it'
 
 const DOMAIN = 'https://blog.panzer-jack.cn'
@@ -31,7 +32,7 @@ async function buildBlogRSS() {
     description: 'Panzer-Jack\'s Blog',
     id: `${DOMAIN}/`,
     link: `${DOMAIN}/`,
-    copyright: `CC BY-NC-SA 4.0 2024 © Panzer-Jack`,
+    copyright: `CC BY-NC-SA 4.0 2026 © Panzer-Jack`,
     feedLinks: {
       json: `${DOMAIN}/rss.json`,
       atom: `${DOMAIN}/rss.atom`,
