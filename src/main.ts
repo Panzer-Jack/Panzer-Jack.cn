@@ -48,8 +48,10 @@ export const createApp = ViteSSG(App, {
     })
 
     router.beforeEach(() => {
+      console.log('路由切换中...')
       NProgress.start()
       busuanzi.fetch()
+      console.log('访问量已更新')
     })
     router.afterEach(() => {
       NProgress.done()

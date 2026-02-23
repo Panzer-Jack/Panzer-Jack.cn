@@ -4,6 +4,7 @@ const PROLOGUE_COMPLETE_KEY = 'prologue-complete-at'
 const THREE_DAYS_MS = 3 * 24 * 60 * 60 * 1000
 
 function isPrologueRecentlyCompleted(): boolean {
+  if (typeof window === 'undefined') return false
   const timestamp = localStorage.getItem(PROLOGUE_COMPLETE_KEY)
   if (!timestamp) return false
   return Date.now() - Number(timestamp) < THREE_DAYS_MS
@@ -57,7 +58,8 @@ export const usePrologueStore = defineStore('prologue', () => {
     setTimeout(() => {
       isComplete.value = true
       isTransitioning.value = false
-      localStorage.setItem(PROLOGUE_COMPLETE_KEY, String(Date.now()))
+      if (typeof window !== 'undefined')
+        localStorage.setItem(PROLOGUE_COMPLETE_KEY, String(Date.now()))
     }, 500)
   }
 
@@ -76,7 +78,8 @@ export const usePrologueStore = defineStore('prologue', () => {
     isTransitioning.value = false
     isComplete.value = false
     shouldShowPrologue.value = true
-    localStorage.removeItem(PROLOGUE_COMPLETE_KEY)
+    if (typeof window !== 'undefined')
+      localStorage.removeItem(PROLOGUE_COMPLETE_KEY)
   }
 
   return {

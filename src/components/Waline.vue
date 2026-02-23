@@ -1,13 +1,8 @@
 <script setup>
 import { Waline } from '@waline/client/component'
-import { pageviewCount } from 'https://unpkg.com/@waline/client@v3/dist/pageview.js'
 
 const serverURL = 'https://comment.panzer-jack.cn'
 const route = useRoute()
-pageviewCount({
-  serverURL: 'https://blog.panzer-jack.cn',
-  path: '/',
-})
 </script>
 
 <template>
