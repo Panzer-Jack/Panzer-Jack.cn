@@ -1,11 +1,12 @@
 import { createHead } from '@unhead/vue/client'
 
+import busuanzi from 'busuanzi.pure.js'
 import NProgress from 'nprogress'
 import { createPinia } from 'pinia'
+
 import { ViteSSG } from 'vite-ssg'
 
 import { setupRouterScroller } from 'vue-router-better-scroller'
-
 import { routes } from 'vue-router/auto-routes'
 
 import App from './App.vue'
@@ -48,6 +49,7 @@ export const createApp = ViteSSG(App, {
 
     router.beforeEach(() => {
       NProgress.start()
+      busuanzi.fetch()
     })
     router.afterEach(() => {
       NProgress.done()

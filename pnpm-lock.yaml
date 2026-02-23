@@ -17,6 +17,9 @@ importers:
       '@waline/client':
         specifier: ^3.12.2
         version: 3.12.2(typescript@5.8.3)
+      busuanzi.pure.js:
+        specifier: ^1.0.3
+        version: 1.0.3
       feed:
         specifier: ^5.2.0
         version: 5.2.0
@@ -1296,6 +1299,9 @@ packages:
   builtin-modules@5.0.0:
     resolution: {integrity: sha512-bkXY9WsVpY7CvMhKSR6pZilZu9Ln5WDrKVBUXf2S443etkmEO4V58heTecXcUIsNsi4Rx8JUO4NfX1IcQl4deg==}
     engines: {node: '>=18.20'}
+
+  busuanzi.pure.js@1.0.3:
+    resolution: {integrity: sha512-tPULdyx+8NNb9geZYDpktKmHAYx9f2LEOBaHyWCaM7iPEMIa/43KgYAUluuU7YG9UFSOFpj4dO7Nj2Vlu3V9Rg==}
 
   cac@6.7.14:
     resolution: {integrity: sha512-b6Ilus+c3RrdDk+JhLKUAQfzzgLEPy6wcXqS7f/xe1EETvsDP6GORG7SFuOs6cID5YkqchW/LXZbX5bc8j7ZcQ==}
@@ -4295,6 +4301,8 @@ snapshots:
   buffer-from@1.1.2: {}
 
   builtin-modules@5.0.0: {}
+
+  busuanzi.pure.js@1.0.3: {}
 
   cac@6.7.14: {}
 

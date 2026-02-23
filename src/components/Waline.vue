@@ -18,8 +18,6 @@ pageviewCount({
       :path="route.path"
     />
 
-    阅读量: <span
-      class="waline-pageview-count"
-    />
+    <span id="busuanzi_container_site_pv">本站总访问量<span id="busuanzi_value_site_pv" />次</span>
   </div>
 </template>
