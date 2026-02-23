@@ -67,7 +67,7 @@ onUnmounted(() => {
     <Transition name="content-fade">
       <div
         v-if="isVisible"
-        class="flex flex-col items-center w-full max-w-650px px-20px"
+        class="flex flex-col items-center w-full max-w-800px px-20px"
       >
         <!-- 立绘（居中上方） -->
         <div

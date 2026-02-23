@@ -26,7 +26,7 @@ console.log('frontmatter', frontmatter.value)
       </div>
 
       <!-- 可滚动内容区 -->
-      <main class="flex-1 overflow-y-auto px-16px py-16px">
+      <main id="main-content" class="flex-1 overflow-y-auto px-16px py-16px">
         <div class="min-h-full p-20px">
           <Wrapper
             :frontmatter="frontmatter"

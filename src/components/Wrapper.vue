@@ -41,10 +41,10 @@ function formatPostDate(date: string) {
     <slot />
   </div>
 
-  <div
-    v-show="isPostDetail || isAbout"
-    class="mt-6"
-  >
+  <div v-show="isPostDetail || isAbout">
+    <div class="markdown-body mt-80px mb-20px">
+      <hr>
+    </div>
     <Waline />
   </div>
 </template>

@@ -20,7 +20,7 @@ import 'prismjs/themes/prism-tomorrow.min.css'
 
 export const createApp = ViteSSG(App, {
   routes,
-}, ({ router, app, isClient }) => {
+}, ({ router, app }) => {
   app.use(createPinia())
   const head = createHead()
   head.push({
@@ -30,17 +30,18 @@ export const createApp = ViteSSG(App, {
   })
   app.use(head)
 
-  if (isClient) {
+  if (!import.meta.env.SSR) {
     const html = document.querySelector('html')!
     setupRouterScroller(router, {
       selectors: {
-        html(ctx) {
+        'html': function (ctx) {
           if (ctx.savedPosition?.top || import.meta.hot)
             html.classList.add('no-sliding')
           else
             html.classList.remove('no-sliding')
           return true
         },
+        '#main-content': true,
       },
       behavior: 'auto',
     })

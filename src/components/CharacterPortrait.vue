@@ -17,7 +17,7 @@ const imageSrc = computed(() => {
 </script>
 
 <template>
-  <div class="flex items-center justify-center w-350px">
+  <div class="flex items-center justify-center w-400px">
     <Transition
       name="portrait-fade"
       mode="out-in"
