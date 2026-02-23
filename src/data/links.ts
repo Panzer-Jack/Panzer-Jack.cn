@@ -7,8 +7,8 @@ import type { FriendLink } from '@/types/link'
 export const friendLinks: FriendLink[] = [
   {
     name: '老船长PZ_Jack',
-    link: 'https://example.com',
-    description: '一个有趣的技术博客',
+    link: 'https://blog.panzer-jack.cn',
+    description: 'A Pragmatistic Dreamer.',
     avatar: 'https://blog.panzer-jack.cn/avatar.png',
   },
 ]
