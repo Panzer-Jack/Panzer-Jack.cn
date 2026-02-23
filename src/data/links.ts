@@ -11,4 +11,10 @@ export const friendLinks: FriendLink[] = [
     description: 'A Pragmatistic Dreamer.',
     avatar: 'https://blog.panzer-jack.cn/avatar.png',
   },
+  {
+    name: '余弦の博客',
+    link: 'https://blog.cosine.ren',
+    description: 'FE / ACG / 手工 / 深色模式强迫症 / INFP / 兴趣广泛养两只猫的老宅女 / remote ',
+    avatar: 'https://blog.cosine.ren/img/avatar.webp',
+  },
 ]
