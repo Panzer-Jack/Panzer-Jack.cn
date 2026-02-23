@@ -7,8 +7,6 @@ const route = useRoute()
 
 const { isPost } = useLayout()
 const frontmatter = computed(() => route.meta.frontmatter || {})
-
-console.log('frontmatter', frontmatter.value)
 </script>
 
 <template>

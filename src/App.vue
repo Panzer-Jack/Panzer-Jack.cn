@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { pageviewCount } from '@waline/client'
 import main from '@/assets/images/main.png'
 import { usePrologueStore } from '@/stores/prologue'
 import PrologueContainer from './prologue/PrologueContainer.vue'
@@ -8,10 +7,6 @@ import { useMenuStore } from './stores/menu'
 const prologueStore = usePrologueStore()
 const menuStore = useMenuStore()
 
-pageviewCount({
-  serverURL: 'https://comment.panzer-jack.cn',
-  path: window.location.pathname,
-})
 // prologueStore.isComplete = true
 </script>
 

@@ -19,7 +19,6 @@ const emit = defineEmits<{
 const animationDelay = computed(() => `${props.index * 0.08}s`)
 
 function handleClick() {
-  console.log(`Selected menu item: ${props.item.label}`, props.isActive)
   emit('select', props.item)
 }
 </script>

@@ -1,7 +1,7 @@
 <script setup>
 import { Waline } from '@waline/client/component'
+import { COMMENT_SERVER_URL } from '@/constants/severURL'
 
-const serverURL = 'https://comment.panzer-jack.cn'
 const route = useRoute()
 </script>
 
@@ -9,10 +9,8 @@ const route = useRoute()
   <div class="relative">
     <Waline
       :key="route.path"
-      :server-u-r-l="serverURL"
+      :server-u-r-l="COMMENT_SERVER_URL"
       :path="route.path"
     />
-
-    <span id="busuanzi_container_site_pv">本站总访问量<span id="busuanzi_value_site_pv" />次</span>
   </div>
 </template>

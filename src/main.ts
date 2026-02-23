@@ -1,5 +1,5 @@
 import { createHead } from '@unhead/vue/client'
-
+// @ts-expect-error missing types
 import busuanzi from 'busuanzi.pure.js'
 import NProgress from 'nprogress'
 import { createPinia } from 'pinia'
@@ -48,10 +48,8 @@ export const createApp = ViteSSG(App, {
     })
 
     router.beforeEach(() => {
-      console.log('路由切换中...')
       NProgress.start()
       busuanzi.fetch()
-      console.log('访问量已更新')
     })
     router.afterEach(() => {
       NProgress.done()

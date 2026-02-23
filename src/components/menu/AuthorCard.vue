@@ -2,19 +2,21 @@
 import containerAuthorBg from '@/assets/images/container-author.png'
 import { authorConfig } from '@/data/menuItems'
 
-// 文章数量 - 可通过 props 传入或使用配置
-interface Props {
-  articleCount?: number
-}
+const pv = ref('0')
 
-const props = withDefaults(defineProps<Props>(), {
-  articleCount: 0,
-})
-
-// 格式化数字为5位显示
+// 格式化数字为6位显示, 舍去其他部份, 不足部分补0
 const formattedCount = computed(() => {
-  return String(props.articleCount).padStart(6, '0')
+  return pv.value.padStart(6, '0').slice(-6).split('')
 })
+
+const { pause } = useIntervalFn(() => {
+  const res = document.querySelector('#vercount_value_site_pv')?.innerHTML
+  if (res !== 'Loading') {
+    pv.value = res || '0'
+    pause() // 获取到数据后停止轮询
+  }
+  console.log('PV:', pv.value)
+}, 500)
 </script>
 
 <template>
@@ -37,10 +39,6 @@ const formattedCount = computed(() => {
 
     <!-- 数字显示器区域 -->
     <div class="relative bottom-31px right--60px flex z-1 gap-2px">
-      <span
-        class="waline-pageview-count"
-        data-path="/"
-      />
       <span
         v-for="(digit, index) in formattedCount"
         :key="index"
