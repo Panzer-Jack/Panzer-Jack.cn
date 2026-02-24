@@ -15,6 +15,12 @@
     sans-serif;
 }
 
+@media (max-width: 64em) {
+  .markdown-body {
+    font-size: 12px;
+  }
+}
+
 /* ========== 标题 h1-h6 ========== */
 .markdown-body h1,
 .markdown-body h2,

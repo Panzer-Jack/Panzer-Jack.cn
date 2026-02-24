@@ -6,7 +6,7 @@
 /* ========== CSS 变量覆盖（按官方变量表结构） ========== */
 [data-waline] {
   /* 字体大小 */
-  --waline-font-size: 12px;
+  --waline-font-size: 9px;
 
   /* 常规颜色 */
   --waline-white: #0a121a;
@@ -47,6 +47,12 @@
   --waline-border: 1px solid var(--waline-border-color);
   --waline-avatar-radius: 50%;
   --waline-box-shadow: 0 2px 12px rgba(0, 0, 0, 0.3);
+}
+
+@media (max-width: 64em) {
+  [data-waline] {
+    --waline-font-size: 12px;
+  }
 }
 
 /* ========== 全局样式隔离（防止 gothic.css / main.css 污染） ========== */
