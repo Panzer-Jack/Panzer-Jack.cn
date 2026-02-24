@@ -194,6 +194,16 @@
   filter: drop-shadow(0 0 4px rgba(0, 212, 170, 0.4));
 }
 
+/* 回复引用：对齐修复（覆盖内置 float 布局） */
+.wl-card .wl-content .wl-reply-to {
+  float: left;
+  margin: 0 0.5em 0 0;
+}
+
+.wl-card .wl-content .wl-reply-to + div p:first-child {
+  margin-top: 0;
+}
+
 .wl-meta-foot {
   display: none;
 }
