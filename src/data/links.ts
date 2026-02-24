@@ -23,4 +23,10 @@ export const friendLinks: FriendLink[] = [
     description: 'Don\'t just daydream, go do it',
     avatar: 'https://github.com/Richard-Zhang1019.png',
   },
+  {
+    name: 'Lemonadeccc',
+    link: 'https://lemonadec.cc/contact',
+    description: 'miaomiao',
+    avatar: 'https://avatars.githubusercontent.com/u/82374719?v=4',
+  },
 ]
