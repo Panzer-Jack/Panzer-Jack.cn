@@ -25,7 +25,7 @@ pnpm preview
 - **SSG**: vite-ssg (静态站点生成)
 - **路由**: unplugin-vue-router (文件系统路由，支持 .vue 和 .md 文件)
 - **状态管理**: Pinia
-- **样式**: UnoCSS (Wind 3 预设 + 自定义哥特主题色)
+- **样式**: 强调优先使用（能使用就使用除非实现不了才用style取写）UnoCSS (Wind 3 预设 + 自定义哥特主题色)写法，然后样式使用px单位去写（比如w-10px)
 - **自动导入**: unplugin-auto-import (Vue/VueUse/Router API 无需手动导入)
 - **组件**: unplugin-vue-components (自动注册)
 - **图标**: unplugin-icons (自定义 SVG 图标集合: text, object)
@@ -71,6 +71,7 @@ pages/                  # 文件系统路由
 ### 开场动画系统 (Prologue)
 
 开场动画采用多阶段对话系统：
+
 - `stores/prologue.ts` 管理全局状态（当前阶段、对话索引、表情、完成状态）
 - `data/dialogueScripts.ts` 定义阶段脚本，每个 `StageScript` 包含 `lines[]` 和 `nextStage`
 - `composables/useDialogue.ts` 封装对话流程控制逻辑

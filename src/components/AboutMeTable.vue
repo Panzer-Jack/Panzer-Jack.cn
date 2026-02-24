@@ -123,20 +123,18 @@ function tagStyle(color: string) {
 </script>
 
 <template>
-  <div class="about-table">
+  <div class="my-[1.5em] rounded-[8px] overflow-hidden border border-tno-primary/12 bg-tno-bg-solid/60">
     <div
-      v-for="(section, idx) in sections"
+      v-for="section in sections"
       :key="section.title"
-      class="section"
-      :class="{ 'mt-0': idx === 0 }"
     >
       <!-- 分类标题 -->
       <div
-        class="section-header"
+        class="flex items-center gap-[8px] px-[16px] py-[10px] font-bold text-[14px] font-[special-common,sans-serif] tracking-[1px]"
         :style="headerStyle(section.color)"
       >
-        <span class="emoji">{{ section.emoji }}</span>
-        <span class="title">{{ section.title }}</span>
+        <span class="text-[16px]">{{ section.emoji }}</span>
+        <span>{{ section.title }}</span>
       </div>
 
       <!-- 遍历 items -->
@@ -147,7 +145,7 @@ function tagStyle(color: string) {
         <!-- 子分区 (带 subtitle + 嵌套 rows) -->
         <template v-if="isSubSection(item)">
           <div
-            class="sub-header"
+            class="py-[6px] pr-[16px] pl-[28px] text-[12px] font-semibold tracking-[0.5px] bg-white/2"
             :style="subHeaderStyle(section.color)"
           >
             {{ item.subtitle }}
@@ -155,112 +153,35 @@ function tagStyle(color: string) {
           <div
             v-for="(row, rIdx) in item.rows"
             :key="row.tag"
-            class="section-row nested"
-            :class="{ 'last-row': rIdx === item.rows.length - 1 }"
+            class="flex items-center gap-[14px] py-[9px] pr-[16px] pl-[28px] border-b transition-[background] duration-200 hover:bg-tno-primary/4"
+            :class="rIdx === item.rows.length - 1 ? 'border-b-tno-primary/10' : 'border-b-tno-primary/6'"
           >
             <span
-              class="tag"
+              class="inline-flex items-center justify-center min-w-[56px] px-[10px] py-[2px] rounded-[4px] text-[12px] font-semibold whitespace-nowrap shrink-0"
               :style="tagStyle(section.color)"
             >
               {{ row.tag }}
             </span>
-            <span class="content">{{ row.content }}</span>
+            <span class="text-[12px] text-tno-text-muted leading-[1.6]">{{ row.content }}</span>
           </div>
         </template>
 
         <!-- 普通行 -->
         <div
           v-else
-          class="section-row"
-          :class="{ 'last-row': iIdx === section.items.length - 1 }"
+          class="flex items-center gap-[14px] px-[16px] py-[9px] border-b transition-[background] duration-200 hover:bg-tno-primary/4"
+          :class="iIdx === section.items.length - 1 ? 'border-b-tno-primary/10' : 'border-b-tno-primary/6'"
         >
           <span
             v-if="item.tag"
-            class="tag"
+            class="inline-flex items-center justify-center min-w-[56px] px-[10px] py-[2px] rounded-[4px] text-[12px] font-semibold whitespace-nowrap shrink-0"
             :style="tagStyle(section.color)"
           >
             {{ item.tag }}
           </span>
-          <span class="content">{{ item.content }}</span>
+          <span class="text-[12px] text-tno-text-muted leading-[1.6]">{{ item.content }}</span>
         </div>
       </template>
     </div>
   </div>
 </template>
-
-<style scoped>
-.about-table {
-  margin: 1.5em 0;
-  border-radius: 8px;
-  overflow: hidden;
-  border: 1px solid rgba(0, 212, 170, 0.12);
-  background: rgba(10, 18, 26, 0.6);
-}
-
-.section {
-  margin-top: 0;
-}
-
-.section-header {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  padding: 10px 16px;
-  font-weight: 700;
-  font-size: 14px;
-  font-family: 'special-common', sans-serif;
-  letter-spacing: 1px;
-}
-
-.section-header .emoji {
-  font-size: 16px;
-}
-
-.sub-header {
-  padding: 6px 16px 6px 28px;
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: 0.5px;
-  background: rgba(255, 255, 255, 0.02);
-}
-
-.section-row {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  padding: 9px 16px;
-  border-bottom: 1px solid rgba(0, 212, 170, 0.06);
-  transition: background 0.2s ease;
-}
-
-.section-row.nested {
-  padding-left: 28px;
-}
-
-.section-row:hover {
-  background: rgba(0, 212, 170, 0.04);
-}
-
-.section-row.last-row {
-  border-bottom: 1px solid rgba(0, 212, 170, 0.1);
-}
-
-.tag {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-width: 56px;
-  padding: 2px 10px;
-  border-radius: 4px;
-  font-size: 12px;
-  font-weight: 600;
-  white-space: nowrap;
-  flex-shrink: 0;
-}
-
-.content {
-  font-size: 12px;
-  color: #8ba8a8;
-  line-height: 1.6;
-}
-</style>

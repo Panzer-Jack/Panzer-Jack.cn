@@ -6,7 +6,7 @@
 /* ========== CSS 变量覆盖（按官方变量表结构） ========== */
 [data-waline] {
   /* 字体大小 */
-  --waline-font-size: 9px;
+  --waline-font-size: 10px;
 
   /* 常规颜色 */
   --waline-white: #0a121a;
