@@ -21,7 +21,7 @@ export const projectCategories: ProjectCategory[] = [
       },
       {
         name: 'OpenAVG',
-        link: 'https://github.com/Panzer-Jack/OpenAVG',
+        link: 'https://github.com/AINovel-Studio/OpenAVG',
         description: '一个可以做Galgame和RPG 的 通用Web冒险游戏引擎 (目前仅支持Gal能力)',
         icon: 'i-carbon-face-wink',
       },
