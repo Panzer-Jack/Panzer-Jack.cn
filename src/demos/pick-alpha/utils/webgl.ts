@@ -72,7 +72,6 @@ export function createFullRenderAreaVAO({
 }) {
   const vao = gl.createVertexArray()!
   gl.bindVertexArray(vao)
-  gl.pixelStorei(gl.UNPACK_PREMULTIPLY_ALPHA_WEBGL, true)
 
   /* eslint-disable */
   const bufferData = new Float32Array([
