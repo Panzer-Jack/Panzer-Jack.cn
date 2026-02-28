@@ -11,5 +11,6 @@ export default panzerjack({
     'no-irregular-whitespace': 'off',
     'style/no-tabs': 'off',
     'style/no-mixed-spaces-and-tabs': 'off',
+    'eslint-comments/no-unlimited-disable': 'off',
   },
 })

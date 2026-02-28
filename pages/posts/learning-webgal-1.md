@@ -5,7 +5,6 @@ tags:
     - 前端学习
     - webgl
 cover: https://pic.imgdb.cn/item/63770c5416f2c2beb107d59f.png
-draft: true
 ---
 
 ## 先简要介绍一下 WebGL
@@ -31,8 +30,10 @@ const gl2 = canvas.getContext('webgl2')
 顶点着色器（Vertex Shader）示例：
 
 ```glsl
-// 这里的 #version 300 es 是告诉编译器我们使用的是 WebGL 2.0 的 GLSL 版本
 #version 300 es
+// 👆这里的 #version 300 es 是告诉编译器我们使用的是 WebGL 2.0 的 GLSL 版本
+// 并且必须放在着色器代码的第一行，否则将默认设置为 GLSL ES 1.00（即 WebGL 1.0 的语法）
+
 // 声明输入变量 a_position，类型为 vec4（4维向量），表示顶点的位置
 in vec4 a_position;
 
@@ -42,13 +43,80 @@ void main() {
 }
 ```
 
-片段着色器示例：
+片段着色器（Fragment Shader）示例：
 
 ```glsl
+#version 300 es
 
+// 声明浮点数的精度为 highp（高精度），这是 WebGL 2.0 中的一个要求，确保在片段着色器中使用高精度的浮点数
+precision highp float;
+
+// 声明输出变量 outColor，类型为 vec4（4维向量），表示片段的颜色
+// 如果你使用的是 WebGL 1.0，那么片段着色器中应该使用内置变量 gl_FragColor 来输出颜色，而不是自定义的输出变量
+// 在 WebGL 2.0 中，我们可以使用 out 关键字来声明一个输出变量，这样就不需要使用 gl_FragColor 了
+// 并且在 WebGL 2.0 中，第一个声明的输出变量默认绑定到颜色缓冲区 0（即 gl_FragColor），所以我们可以直接使用 outColor 来输出颜色
+out vec4 outColor;
+
+// 如果有多个输出变量，我们可以使用 layout(location = X) 来指定它们在颜色缓冲区中的位置，这样就可以同时输出到多个缓冲区了
+// 在 GLSL 中手动指定位置
+// layout(location = 0) out vec4 outColor;     输出到颜色缓冲
+// layout(location = 1) out vec4 outNormal;    输出到另一个缓冲
+
+void main() {
+  // 将输出颜色设置为红色（RGBA: 1.0, 0.0, 0.0, 1.0）
+  outColor = vec4(1.0, 0.0, 0.0, 1.0);
+}
 ```
 
-## 代码实践
+#### 简要介绍一下核心概念：
+
+1. `属性（Attribute）`、`缓冲区（Buffer）`、`顶点数组对象（Vertex Array Object，VAO）`：
+
+`属性（Attribute）`：这是顶点着色器中的输入变量，用于接收每个顶点的数据，例如位置、颜色、纹理坐标等。属性变量在 JavaScript 中通过缓冲区对象（Buffer Object）传递给 GPU。
+
+```glsl
+// 这是一个属性变量，表示顶点的位置
+// 命名以 a_ 开头是一个常见的约定，表示这是一个属性变量
+in vec4 a_position;
+```
+
+`缓冲区（Buffer）`：这是 WebGL 中用于存储数据的对象，可以存储顶点数据、索引数据等。缓冲区在 JavaScript 中通过 WebGL API 创建和使用。
+
+`顶点数组对象（Vertex Array Object，VAO）`：这是 WebGL 2.0 中引入的一个对象，用于管理属性变量和缓冲区之间的关系。简单来说，顶点数组对象相当于是一个状态快照，将属性变量的配置和绑定信息保存起来，这样在绘制时只需要绑定顶点数组对象即可恢复之前的配置，避免了重复设置属性变量和缓冲区的麻烦。
+
+2. `统一变量（Uniform）`：这是顶点着色器和片段着色器中的输入变量，用于接收全局数据，例如变换矩阵、光照参数等。统一变量在 JavaScript 中通过程序对象（Program Object）传递给 GPU。
+
+```glsl
+// 这是一个统一变量，表示纹理采样器，用于在片段着色器中访问纹理数据
+// 命名以 u_ 开头是一个常见的约定，表示这是一个统一变量
+uniform sampler2D u_texture;
+```
+
+3. `纹理（Texture）`：这是片段着色器中的输入变量，用于接收纹理数据，例如图片、视频等。纹理在 JavaScript 中通过纹理对象（Texture Object）传递给 GPU。（比如图片就是一种纹理）
+
+```glsl
+// 通常 纹理的采样器会被声明为一个统一变量，类型为 sampler2D，表示这是一个二维纹理
+uniform sampler2D u_texture;
+```
+
+4. `内置变量（Built-in Variable）`：这是 GLSL 中预定义的变量，用于表示一些特殊的数据，例如 gl_Position（顶点位置）、gl_FragColor（片段颜色）等。这些变量在着色器中具有特殊的意义和用途。
+
+```glsl
+// 这是一个内置变量，表示最终的顶点位置，必须在顶点着色器中赋值
+gl_Position = a_position;
+```
+
+5. `程序对象（Program Object）`：这是 WebGL 中用于管理着色器程序的对象，包含了顶点着色器和片段着色器的组合。程序对象在 JavaScript 中通过 WebGL API 创建和使用。
+
+6. `插值变量（Varying）`：这是顶点着色器和片段着色器之间的变量，用于在两者之间传递数据，例如颜色、纹理坐标等。插值变量在 JavaScript 中通过程序对象传递给 GPU。(比如常见的渐变色就是通过插值变量来实现的)
+
+> 注意：在 WebGL 2.0 中，插值变量的显示声明已经被废弃，取而代之的是使用 out 关键字在顶点着色器中声明输出变量，并在片段着色器中使用 in 关键字声明输入变量来接收这些数据。
+
+## 实现一个图片背景透明化小工具
+
+#### 实际效果
+
+<PickAlpha />
 
 ## 参考链接
 

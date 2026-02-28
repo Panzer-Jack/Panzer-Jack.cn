@@ -78,6 +78,7 @@ export default defineConfig({
     }),
     // https://github.com/unplugin/unplugin-vue-components
     Components({
+      dirs: ['src/components', 'src/demos'],
       dts: true,
       extensions: ['vue', 'md'],
       include: [/\.vue$/, /\.vue\?vue/, /\.md$/],
