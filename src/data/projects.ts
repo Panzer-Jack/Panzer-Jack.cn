@@ -26,6 +26,12 @@ export const projectCategories: ProjectCategory[] = [
         icon: 'i-carbon-face-wink',
       },
       {
+        name: 'Pick Alpha',
+        link: 'https://pick-alpha.panzer-jack.cn',
+        description: '一个基于WebGL实现的选定色域透明化小工具',
+        icon: 'i-carbon-color-palette',
+      },
+      {
         name: '数云控',
         link: 'https://www.bilibili.com/video/BV17X4y1n7GF/?spm_id_from=333.999.0.0&vd_source=97c8faa200f8ec81ac98c1e357025cd4',
         description: '一种用于数控设备的泛用性云监控IOT平台',
