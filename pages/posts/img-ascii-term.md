@@ -8,7 +8,7 @@ tags:
 ---
 
 > 【img-ascii-term】🎉 在nodejs中一键将图片转换为彩色或黑白的 ASCII 字符画，只需一个 console.log 就能在终端展示. 😋 搭配 AI 生图，轻松生成独特 logo，快速嵌入你的项目或 CLI！
-> ![image.png](https://p0-xtjj-private.juejin.cn/tos-cn-i-73owjymdk6/60b16fdb255d46d1b30663926c6b712f~tplv-73owjymdk6-jj-mark-v1:0:0:0:0:5o6Y6YeR5oqA5pyv56S-5Yy6IEAgUGFuemVyX0phY2s=:q75.awebp?policy=eyJ2bSI6MywidWlkIjoiMTgzNDQ0Nzc0MDg2NjIxNSJ9&rk3s=f64ab15b&x-orig-authkey=f32326d3454f2ac7e96d3d06cdbb035152127018&x-orig-expires=1772435021&x-orig-sign=SmkA%2B6UBeF0rPtqJNJpD2aqUvhY%3D)
+> ![alt text](./img-ascii-term-img-1.png)
 
 ## 🚀 仓库
 
@@ -24,7 +24,7 @@ tags:
 - 支持常见格式：jpg、jpeg、png等
 - 以 ESM 包形式发布，适用于支持 `import` 的 Node.js 环境
 
-![image.png](https://p0-xtjj-private.juejin.cn/tos-cn-i-73owjymdk6/c8185d63efe84d7181e4377122b9cdc3~tplv-73owjymdk6-jj-mark-v1:0:0:0:0:5o6Y6YeR5oqA5pyv56S-5Yy6IEAgUGFuemVyX0phY2s=:q75.awebp?policy=eyJ2bSI6MywidWlkIjoiMTgzNDQ0Nzc0MDg2NjIxNSJ9&rk3s=f64ab15b&x-orig-authkey=f32326d3454f2ac7e96d3d06cdbb035152127018&x-orig-expires=1772435021&x-orig-sign=GGwzTaKgOYRuOx1rLDPA8pMxef8%3D)
+![alt text](./img-ascii-term-img-2.png)
 
 ## 环境要求
 
