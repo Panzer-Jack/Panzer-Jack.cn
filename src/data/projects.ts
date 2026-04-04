@@ -20,6 +20,12 @@ export const projectCategories: ProjectCategory[] = [
         icon: 'i-carbon-face-wink',
       },
       {
+        name: 'Copiwaifu',
+        link: 'https://github.com/Panzer-Jack/Copiwaifu',
+        description: '你的 Live2D AI 领航员。长官！我们已经与CC、Codex、Copilot同步完成。让我们一起改变这个世界吧！',
+        icon: 'i-carbon-face-wink',
+      },
+      {
         name: 'OpenAVG',
         link: 'https://github.com/AINovel-Studio/OpenAVG',
         description: '一个可以做Galgame和RPG 的 通用Web冒险游戏引擎 (目前仅支持Gal能力)',
